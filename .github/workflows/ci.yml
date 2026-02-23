@@ -1,0 +1,97 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - 'main'
+      - 'sprint/*'
+      - 'Sprint/*'
+  pull_request:
+    branches:
+      - 'main'
+      - 'sprint/*'
+      - 'Sprint/*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:latest
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_DB: mydatabase
+          POSTGRES_USER: myuser
+          POSTGRES_PASSWORD: mypassword
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      DATABASE_URL: postgres://myuser:mypassword@localhost:5432/mydatabase
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+
+      - name: Install pnpm
+        run: npm install -g pnpm@9.1.0
+
+      - name: Cache Node.js modules
+        uses: actions/cache@v4
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Check TypeScript files
+        run: pnpm tsc --noEmit
+
+      - name: Lint (ESLint – no-console, jsx-curly-brace, next/image, import/order)
+        run: pnpm lint
+
+      - name: Lint and format TypeScript and JavaScript files
+        run: |
+          find . -type f -not -path "./node_modules/*" \( -name "*.ts" -o -name "*.tsx" -o -name "*.js" \) | xargs pnpm eslint --fix
+          find . -type f -not -path "./node_modules/*" \( -name "*.ts" -o -name "*.tsx" -o -name "*.js" \) | xargs pnpm prettier --write
+
+      - name: Format Markdown and JSON files
+        run: |
+          find . -type f -not -path "./node_modules/*" \( -name "*.md" -o -name "*.json" \) | xargs pnpm prettier --write
+
+      - name: Generate Prisma Client
+        if: hashFiles('prisma/schema.prisma') != ''
+        run: npx prisma generate --schema=prisma/schema.prisma
+
+      - name: Run migrations
+        if: hashFiles('prisma/schema.prisma') != ''
+        run: npx prisma migrate deploy --schema=prisma/schema.prisma
+
+      - name: Get test paths for branch
+        id: test-paths
+        run: |
+          BRANCH="${{ github.head_ref || github.ref_name }}"
+          PATHS=$(node -e "const c=require('./__tests__/tasks.config.js'); console.log(c.getTestPathsForBranch('$BRANCH').join(' '))" | xargs)
+          echo "paths=$PATHS" >> $GITHUB_OUTPUT
+          if [ -z "$PATHS" ]; then
+            echo "paths_empty=true" >> $GITHUB_OUTPUT
+          else
+            echo "paths_empty=false" >> $GITHUB_OUTPUT
+          fi
+          echo "Running tests for branch $BRANCH: $PATHS"
+
+      - name: Run unit tests
+        if: steps.test-paths.outputs.paths_empty != 'true'
+        run: pnpm vitest run --reporter=verbose ${{ steps.test-paths.outputs.paths }}

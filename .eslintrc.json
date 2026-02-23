@@ -1,0 +1,28 @@
+{
+  "ignorePatterns": ["__tests__/**"],
+  "extends": ["next/core-web-vitals"],
+  "rules": {
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always",
+        "distinctGroup": false,
+        "pathGroupsExcludedImportTypes": ["external"],
+        "groups": [["builtin", "external"], "internal", ["sibling", "parent"]],
+        "pathGroups": [
+          { "pattern": "react", "group": "builtin", "position": "before" },
+          { "pattern": "next/**", "group": "external" },
+          { "pattern": "@/**", "group": "internal" },
+          { "pattern": "./**", "group": "sibling" },
+          { "pattern": "./**", "group": "parent" }
+        ]
+      }
+    ],
+    "no-console": ["error", { "allow": ["warn", "error"] }],
+    "react/jsx-curly-brace-presence": [
+      "error",
+      { "props": "never", "children": "never" }
+    ],
+    "@next/next/no-img-element": "error"
+  }
+}

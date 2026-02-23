@@ -1,0 +1,9 @@
+# Dependencies and build
+node_modules
+.next
+out
+build
+coverage
+
+# Test files – excluded from format check
+__tests__
