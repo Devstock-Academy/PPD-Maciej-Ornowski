@@ -38,12 +38,14 @@
     "test-sprint-6": "vitest run __tests__/sprint-6/"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
     "eslint-plugin-import": "^2.27.5",
     "flowbite": "^1.6.5",
     "flowbite-react": "^0.4.7",
     "next": "14.2.24",
+    "next-intl": "^4.8.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "vite-plugin-require": "^1.1.10",
