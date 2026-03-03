@@ -1,6 +1,10 @@
 const Modal = () => {
   return (
-    <></>
+    <div
+      data-testid='modal'
+    >
+
+    </div>
   )
 }
 
