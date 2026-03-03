@@ -1,2 +1,2 @@
-export { default as DevstockLogo } from './DevstockLogo'
-export { default as DevstockText } from './DevstockText'
+export { default as DevstockLogo } from './devstock-logo'
+export { default as DevstockText } from './devstock-text'
