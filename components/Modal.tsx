@@ -1,3 +1,7 @@
-const Modal = () => <div>Modal</div>
+const Modal = () => {
+  return (
+    <></>
+  )
+}
 
 export default Modal

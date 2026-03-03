@@ -1,3 +1,7 @@
-const NavButton = () => <div>NavButton</div>
+const NavButton = () => {
+  return (
+    <></>
+  )
+}
 
 export default NavButton

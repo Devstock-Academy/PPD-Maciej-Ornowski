@@ -1,3 +1,7 @@
-const IconWrapper = () => <div>IconWrapper</div>
+const IconWrapper = () => {
+  return (
+    <></>
+  )
+}
 
 export default IconWrapper

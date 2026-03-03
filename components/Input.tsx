@@ -1,3 +1,7 @@
-const Input = () => <div>Input</div>
+const Input = () => {
+  return (
+    <></>
+  )
+}
 
 export default Input

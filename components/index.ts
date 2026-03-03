@@ -1,3 +1,8 @@
 export { default as Button } from './Button'
 export { default as TextLink } from './TextLink'
+export { default as Checkbox } from './Checkbox'
+export { default as IconWrapper } from './IconWrapper'
+export { default as Input } from './Input'
+export { default as Modal } from './Modal'
+export { default as NavButton } from './NavButton'
 export { default as Divider } from './Divider'
