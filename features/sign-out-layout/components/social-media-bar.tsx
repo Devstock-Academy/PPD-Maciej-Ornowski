@@ -1,29 +1,22 @@
-import {
-  FacebookIcon,
-  InstagramIcon,
-  LinkedinIcon,
-  TiktokIcon,
-  YoutubeIcon,
-} from '@/icons'
-import GithubIcon from '@/icons/github-icon'
+import SocialMediaIconPicker from '@/features/sign-out-layout/components/social-media-icon-picker'
 
 const socialMediaLinks = [
   {
-    iconComponent: <FacebookIcon />,
+    name: 'facebook',
     url: 'https://www.facebook.com/groups/3792300160870421',
   },
   {
-    iconComponent: <InstagramIcon />,
+    name: 'instagram',
     url: 'https://www.instagram.com/devstock.pl/',
   },
   {
-    iconComponent: <LinkedinIcon />,
+    name: 'linkedin',
     url: 'https://www.linkedin.com/company/devstockspzoo/mycompany/',
   },
-  { iconComponent: <YoutubeIcon />, url: 'https://www.youtube.com/@devstock' },
-  { iconComponent: <GithubIcon />, url: 'https://github.com/Devstock-Academy' },
+  { name: 'youtube', url: 'https://www.youtube.com/@devstock' },
+  { name: 'github', url: 'https://github.com/Devstock-Academy' },
   {
-    iconComponent: <TiktokIcon />,
+    name: 'tiktok',
     url: 'https://www.tiktok.com/@devstockacademy',
   },
 ]
@@ -31,14 +24,16 @@ const socialMediaLinks = [
 const SocialMediaBar = () => {
   return (
     <div className='flex h-10 justify-end gap-8 bg-dark-brand px-10 py-2.5 '>
-      {socialMediaLinks.map((link, index) => (
+      {socialMediaLinks.map((link) => (
         <a
-          key={index}
+          key={link.name}
           href={link.url}
           target='_blank'
           rel='noopener noreferrer'
         >
-          {link.iconComponent}
+          <span className='size-5 text-white'>
+            <SocialMediaIconPicker name={link.name} />
+          </span>
         </a>
       ))}
     </div>
