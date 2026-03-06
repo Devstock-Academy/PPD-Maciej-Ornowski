@@ -2,5 +2,9 @@
   "Footer": {
     "privacy": "Polityka prywatności",
     "contact": "Kontakt"
+  },
+  "SignOutTopbar": {
+    "login": "Zaloguj się",
+    "sign-up": "Rejestracja"
   }
 }
