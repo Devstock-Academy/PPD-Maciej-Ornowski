@@ -24,6 +24,7 @@ const NavButton = ({
   size = 'sm',
   variant = 'primary',
 }: NavButtonProps) => {
+  // TODO variant
   return (
     <Link href={href}>
       <Button onClick={() => {}} size={size} className='px-8.125'>

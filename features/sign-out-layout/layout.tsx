@@ -20,3 +20,5 @@ const SignOutLayout = ({ children }: SignOutLayoutProps) => {
     </div>
   )
 }
+
+export default SignOutLayout
