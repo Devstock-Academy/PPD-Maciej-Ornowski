@@ -23,7 +23,7 @@ const socialMediaLinks = [
 
 const SocialMediaBar = () => {
   return (
-    <div className='flex h-10 justify-end gap-8 bg-dark-brand px-10 py-2.5 '>
+    <div className='flex h-10 justify-end gap-8 bg-rich-black px-10 py-2.5 '>
       {socialMediaLinks.map((link) => (
         <a
           key={link.name}

@@ -7,7 +7,7 @@ import { NavButton, Divider, TextLink } from '@/components'
 import DevstockLogo from '@/icons/devstock-logo'
 
 const SignOutTopbar = () => {
-  const t = useTranslations('Footer')
+  const t = useTranslations('TopBar')
   return (
     <div className=' flex h-20 w-full items-center justify-between bg-dark-brand px-10 '>
       <Link href='/'>

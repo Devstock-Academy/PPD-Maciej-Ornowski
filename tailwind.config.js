@@ -12,6 +12,7 @@ module.exports = {
     extend: {
       colors: {
         'dark-brand': '#222426',
+        'rich-black': '#121415',
       },
     },
   },
