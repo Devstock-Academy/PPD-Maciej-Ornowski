@@ -13,5 +13,15 @@
     "heroSupportingTextLine2": "programowania poprzez praktykę i grywalizację",
     "buttonStartLearning": "Zacznij naukę",
     "buttonExploreAcademy": "Poznaj akademię"
+  },
+  "Content": {
+    "header": "Czego możesz się nauczyć?",
+    "bottomCardTitle": "Zaufało nam już 400+ kursantów z całego kraju",
+    "bottomCardText": "Rozwijamy produkty edukacyjne, prowadzimy akademię programowania, tworzymy software dla klientów komercyjnych, prowadzimy body leasing i promujemy sport",
+    "bottomCardLink": "Poznaj nas"
+  },
+  "Landing": {
+    "paragraph1": "Codebusters pozwoli Ci poznawać i w praktyce ćwiczyć technologie Front-end, takie jak HTML5, CSS oraz JavaScript! ",
+    "paragraph2": "Możesz rozwiązywać zadania, piąć się w rankingu, zdobywać osiagnięcia i poziomy znajomości różnych technologii, a nawet wyeksportować swoje wyniki i pochwalić się nimi!"
   }
 }

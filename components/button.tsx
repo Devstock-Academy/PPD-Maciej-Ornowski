@@ -4,7 +4,7 @@ import React from 'react'
 type ButtonProps = {
   children: React.ReactNode
   onClick: () => void
-  size?: 'sm' | 'md' | 'lg'
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
   className?: string
 }
 
