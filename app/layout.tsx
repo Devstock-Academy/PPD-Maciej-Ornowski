@@ -3,6 +3,9 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
+import clsx from 'clsx'
+
+import SignOutLayout from '@/features/sign-out-layout/layout'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,11 +22,12 @@ export default async function RootLayout({
   params: { locale: string }
 }) {
   const messages = await getMessages()
+  const bodyClass = clsx(inter.className, 'bg-background')
   return (
     <html lang={locale}>
-      <body className={inter.className}>
+      <body className={bodyClass}>
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <SignOutLayout>{children}</SignOutLayout>
         </NextIntlClientProvider>
       </body>
     </html>

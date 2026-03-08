@@ -6,5 +6,12 @@
   "TopBar": {
     "login": "Zaloguj się",
     "sign-up": "Rejestracja"
+  },
+  "HeroImage": {
+    "headLine": "Codebusters _/>",
+    "heroSupportingTextLine1": "...to platforma do skutecznej, szybkiej i angażującej nauki",
+    "heroSupportingTextLine2": "programowania poprzez praktykę i grywalizację",
+    "buttonStartLearning": "Zacznij naukę",
+    "buttonExploreAcademy": "Poznaj akademię"
   }
 }

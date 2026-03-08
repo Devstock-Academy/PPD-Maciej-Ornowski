@@ -1,12 +1,6 @@
-import SignOutLayout from '@/features/sign-out-layout/layout'
+import { Landing } from '@/features/landing'
 
 const Home = () => {
-  return (
-    <SignOutLayout>
-      <div className='mx-auto w-full'>
-        TODO Landing Page still under construction
-      </div>
-    </SignOutLayout>
-  )
+  return <Landing />
 }
 export default Home
