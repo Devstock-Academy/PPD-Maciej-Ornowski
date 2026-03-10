@@ -11,7 +11,6 @@ const Landing = () => {
       <Content
         headLine={t('headLine')}
         descriptionLines={[t('descriptionMain'), t('descriptionSupport')]}
-        videoId='NKsma2XgjL4'
       />
     </div>
   )
