@@ -11,7 +11,7 @@ const HeroImage = () => {
   return (
     <section
       data-testid='hero-image'
-      className='relative flex h-120 w-full flex-col items-center justify-center  text-white'
+      className='relative flex h-120 w-full flex-col overflow-hidden text-white'
     >
       <Image
         src='/HeroImage.webp'
@@ -23,9 +23,7 @@ const HeroImage = () => {
       />
       <div className='absolute inset-0 flex items-center justify-center bg-hero-overlay/90'>
         <div className='z-10 flex flex-col items-center justify-center gap-3'>
-          <h1 className='text-center text-6xl font-extrabold leading-tight tracking-tight'>
-            {t('headLine')}
-          </h1>
+          <h1>{t('headLine')}</h1>
           <p className='text-2xl font-extralight'>by</p>
           <div className='flex items-center gap-2'>
             <DevstockLogo />
@@ -37,11 +35,17 @@ const HeroImage = () => {
             {t('heroSupportingTextLine2')}
           </span>
           <div className='flex w-full items-center justify-center gap-8'>
-            <NavButton>
+            <NavButton className='w-45.5 rounded-md bg-red-700 px-6 py-3 text-lg leading-6 text-white hover:bg-red-800'>
               <span className='pr-2'>{t('buttonStartLearning')}</span>
               <SmallArrowIcon />
             </NavButton>
-            <NavButton>{t('buttonExploreAcademy')}</NavButton>
+            <NavButton
+              color='white'
+              outline
+              className='w-45.5 px-6 py-3 text-lg leading-6'
+            >
+              {t('buttonExploreAcademy')}
+            </NavButton>
           </div>
         </div>
       </div>

@@ -12,13 +12,14 @@ module.exports = {
     extend: {
       colors: {
         background: '#121415',
+        primary: '#0074F0',
         'dark-brand': '#222426',
         'rich-black': '#121415',
         'hero-overlay': '#1B2124',
-        'button-variant-blue': '#0074F0',
-        'button-variant-red': '#F74746',
       },
       spacing: {
+        2.5: '0.625rem',
+        3.5: '0.875rem',
         4.5: '1.125rem', // 18px
         6.5: '1.625rem', // 26px
         8.125: '2.03125rem', // 32.5px

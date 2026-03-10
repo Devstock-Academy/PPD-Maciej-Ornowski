@@ -4,6 +4,6 @@
 
 @layer base {
     h1 {
-        @apply text-[64px] font-bold leading-[60px] ;
+        @apply text-[64px] font-extrabold leading-[60px] ;
     }
 }

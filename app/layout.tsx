@@ -1,5 +1,5 @@
+import { Lexend_Deca } from 'next/font/google'
 import React from 'react'
-import { Inter } from 'next/font/google'
 import './globals.css'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
@@ -7,7 +7,11 @@ import clsx from 'clsx'
 
 import SignOutLayout from '@/features/sign-out-layout/layout'
 
-const inter = Inter({ subsets: ['latin'] })
+const lexendDeca = Lexend_Deca({
+  subsets: ['latin'],
+  weight: ['200', '500'],
+  display: 'swap',
+})
 
 export const metadata = {
   title: 'Create Next App',
@@ -22,7 +26,7 @@ export default async function RootLayout({
   params: { locale: string }
 }) {
   const messages = await getMessages()
-  const bodyClass = clsx(inter.className, 'bg-background')
+  const bodyClass = clsx(lexendDeca.className)
   return (
     <html lang={locale}>
       <body className={bodyClass}>

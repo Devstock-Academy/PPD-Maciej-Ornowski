@@ -3,31 +3,17 @@ import Link from 'next/link'
 
 import { Button } from '@/components'
 
+type ButtonProps = React.ComponentProps<typeof Button>
+
 type NavButtonProps = {
   children: React.ReactNode
   href?: string
-  size?: 'sm' | 'md' | 'lg'
-  variant?:
-    | 'primary'
-    | 'alternative'
-    | 'alternative-dark'
-    | 'dark'
-    | 'gray'
-    | 'green'
-    | 'red'
-    | 'white'
-}
+} & Omit<ButtonProps, 'onClick'>
 
-const NavButton = ({
-  href = '/',
-  children,
-  size = 'sm',
-  variant = 'primary',
-}: NavButtonProps) => {
-  // TODO variant
+const NavButton = ({ href = '/', children, ...props }: NavButtonProps) => {
   return (
     <Link href={href}>
-      <Button onClick={() => {}} size={size} className='px-8.125'>
+      <Button {...props} onClick={() => {}}>
         {children}
       </Button>
     </Link>

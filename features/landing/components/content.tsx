@@ -11,17 +11,25 @@ type ContentProps = {
   videoId?: string
 }
 
+//TODO
+// 1. button colors
+// 2. bg image in hero image
+// 3. typography spacings (leadigng i size)
+// 4. max-w-content nie działa.
+
 const Content = ({ paragraphs = [], videoId }: ContentProps) => {
   const t = useTranslations('Content')
   const hasParagraphs = paragraphs.length > 0
   return (
     <div className='mx-10 flex flex-col bg-white'>
       <div
-        className={clsx('flex flex-col gap-8 py-15 xl:gap-x-30', {
-          'items-center justify-between xl:flex-row': hasParagraphs,
-          'items-center justify-center text-center xl:flex-row-reverse':
-            !hasParagraphs,
-        })}
+        className={clsx(
+          'flex max-w-content flex-col items-center gap-8 py-15 xl:gap-x-30',
+          {
+            'justify-between xl:flex-row': hasParagraphs,
+            'justify-center text-center xl:flex-row-reverse': !hasParagraphs,
+          }
+        )}
       >
         <div
           className={clsx('flex flex-1 flex-col gap-8.1875', {
