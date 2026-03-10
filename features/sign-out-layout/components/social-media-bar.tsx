@@ -1,6 +1,9 @@
 import SocialMediaIconPicker from '@/features/sign-out-layout/components/social-media-icon-picker'
+import { SocialMediaIcons } from '@/icons'
 
-const socialMediaLinks = [
+type socialMediaLinksType = { name: SocialMediaIcons; url: string }
+
+const socialMediaLinks: socialMediaLinksType[] = [
   {
     name: 'facebook',
     url: 'https://www.facebook.com/groups/3792300160870421',
