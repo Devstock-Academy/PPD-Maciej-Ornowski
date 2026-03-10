@@ -4,12 +4,13 @@ import HeroImage from './hero-image'
 import Content from './content'
 
 const Landing = () => {
-  const t = useTranslations('Landing')
+  const t = useTranslations('Content')
   return (
     <div className='flex w-full flex-col items-center'>
       <HeroImage />
       <Content
-        paragraphs={[t('paragraph1'), t('paragraph2')]}
+        headLine={t('headLine')}
+        descriptionLines={[t('descriptionMain'), t('descriptionSupport')]}
         videoId='NKsma2XgjL4'
       />
     </div>

@@ -35,15 +35,11 @@ const HeroImage = () => {
             {t('heroSupportingTextLine2')}
           </span>
           <div className='flex w-full items-center justify-center gap-8'>
-            <NavButton className='w-45.5 rounded-md bg-red-700 px-6 py-3 text-lg leading-6 text-white hover:bg-red-800'>
+            <NavButton className='w-50 rounded-md bg-red-700 px-5 py-3 text-white hover:bg-red-800'>
               <span className='pr-2'>{t('buttonStartLearning')}</span>
               <SmallArrowIcon />
             </NavButton>
-            <NavButton
-              color='white'
-              outline
-              className='w-45.5 px-6 py-3 text-lg leading-6'
-            >
+            <NavButton className='w-50 border border-white bg-transparent px-5 py-3 hover:border-gray-100 hover:bg-gray-50 hover:text-primary-600'>
               {t('buttonExploreAcademy')}
             </NavButton>
           </div>
