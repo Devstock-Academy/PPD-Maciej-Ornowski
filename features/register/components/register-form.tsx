@@ -1,6 +1,54 @@
 import { Button, Checkbox, Label, TextInput } from 'flowbite-react'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { z } from 'zod'
+import { useForm } from 'react-hook-form'
+
+const formSchema = z
+  .object({
+    pseudonim: z
+      .string()
+      .min(1, 'Pseudonim musi zawierać odpowiednią ilość znaków'),
+    imie: z.string().min(1, 'Imię musi zawierać odpowiednią ilość znaków'),
+    nazwisko: z
+      .string()
+      .min(1, 'Nazwisko musi zawierać odpowiednią ilość znaków'),
+    email: z
+      .string()
+      .min(1, 'Email jest wymagany')
+      .email('E-mail musi mieć poprawny format'),
+    password: z
+      .string()
+      .min(8, 'Hasło musi zawierać odpowiednią ilość znaków')
+      .regex(/[A-Z]/, 'Hasło musi zawierać co najmniej jedną dużą literę')
+      .regex(/[a-z]/, 'Hasło musi zawierać co najmniej jedną małą literę')
+      .regex(/[0-9]/, 'Hasło musi zawierać co najmniej jedną liczbę')
+      .regex(
+        /[!@#$%^&*(),.?":{}|<>]/,
+        'Hasło musi zawierać co najmniej jeden znak specjalny'
+      ),
+    confirmPassword: z.string().min(1, 'Hasło jest niezgodne'),
+    rulesAccepted: z.boolean().refine((val) => val === true, {
+      message: 'Musisz zaakceptować zasady i warunki świadczenia usług!',
+    }),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    path: ['confirmPassword'],
+    message: 'Hasło jest niezgodne',
+  })
+
+type FormData = z.infer<typeof formSchema>
 
 const RegisterForm = () => {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<FormData>({
+    resolver: zodResolver(formSchema),
+    mode: 'onBlur',
+  })
+
   return (
     <div className='flex w-175 flex-col items-center rounded-lg bg-dark-brand p-8 drop-shadow-lg'>
       <form className='flex w-full flex-col gap-y-8'>
