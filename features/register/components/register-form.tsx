@@ -17,6 +17,7 @@ const RegisterForm = () => {
               type='email'
               placeholder='name@flowbite.com'
               required
+              color='gray'
             />
           </div>
           <div className='w-75'>
@@ -28,6 +29,7 @@ const RegisterForm = () => {
               type='email'
               placeholder='name@flowbite.com'
               required
+              color='gray'
             />
           </div>
         </div>
@@ -41,6 +43,7 @@ const RegisterForm = () => {
               type='email'
               placeholder='name@flowbite.com'
               required
+              color='gray'
             />
           </div>
           <div className='w-75'>
@@ -52,6 +55,7 @@ const RegisterForm = () => {
               type='email'
               placeholder='name@flowbite.com'
               required
+              color='gray'
             />
           </div>
         </div>
@@ -64,6 +68,7 @@ const RegisterForm = () => {
             type='email'
             placeholder='name@flowbite.com'
             required
+            color='gray'
           />
         </div>
         <div>
@@ -75,6 +80,7 @@ const RegisterForm = () => {
             type='email'
             placeholder='name@flowbite.com'
             required
+            color='gray'
           />
         </div>
         <div className='flex items-center gap-x-4'>
