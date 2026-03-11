@@ -4,8 +4,6 @@ import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import clsx from 'clsx'
 
-import SignOutLayout from '@/features/sign-out-layout/layout'
-
 import './globals.css'
 
 const lexendDeca = Lexend_Deca({
@@ -32,7 +30,7 @@ export default async function RootLayout({
     <html lang={locale}>
       <body className={bodyClass}>
         <NextIntlClientProvider messages={messages}>
-          <SignOutLayout>{children}</SignOutLayout>
+          {children}
         </NextIntlClientProvider>
       </body>
     </html>
