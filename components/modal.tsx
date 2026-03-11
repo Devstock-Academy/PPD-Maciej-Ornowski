@@ -1,11 +1,8 @@
-const Modal = () => {
-  return (
-    <div
-      data-testid='modal'
-    >
+import { useTranslations } from 'next-intl'
 
-    </div>
-  )
+const Modal = () => {
+  const t = useTranslations('Modal')
+  return <div>Modal</div>
 }
 
 export default Modal
