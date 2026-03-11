@@ -2,7 +2,6 @@
 
 import LiteYouTubeEmbed from 'react-lite-youtube-embed'
 import { useTranslations } from 'next-intl'
-import clsx from 'clsx'
 import { Card } from 'flowbite-react'
 
 import { TextLink } from '@/components'
@@ -27,16 +26,8 @@ const Content = ({
   return (
     <div className='mx-10 mb-10 flex flex-col content-center items-center gap-y-10 bg-white'>
       {showVariantA && (
-        <div
-          className={clsx(
-            'flex max-w-content flex-col items-center justify-between gap-8 py-15 xl:flex-row xl:gap-x-30'
-          )}
-        >
-          <div
-            className={clsx(
-              'flex flex-1 flex-col items-center justify-center gap-8.1875'
-            )}
-          >
+        <div className='flex max-w-content flex-col items-center justify-between gap-8 py-15 xl:flex-row xl:gap-x-30'>
+          <div className='flex flex-1 flex-col items-center justify-center gap-8.1875'>
             <h1 className='text-black'>{headLine}</h1>
             {hasDescription &&
               descriptionLines.map((text, i) => (
@@ -68,11 +59,7 @@ const Content = ({
         </div>
       )}
       {showVariantB && (
-        <div
-          className={clsx(
-            'flex max-w-content flex-col items-center justify-between gap-8 py-15 xl:flex-row xl:gap-x-30'
-          )}
-        >
+        <div className='flex max-w-content flex-col items-center justify-between gap-8 py-15 xl:flex-row xl:gap-x-30'>
           {videoId && (
             <div className='relative w-full max-w-video'>
               <div className='aspect-video w-full overflow-hidden rounded-lg drop-shadow-xl'>
@@ -102,11 +89,7 @@ const Content = ({
               ))}
             </div>
           )}
-          <div
-            className={clsx(
-              'flex flex-1 flex-col items-center justify-center gap-8.1875'
-            )}
-          >
+          <div className='flex flex-1 flex-col items-center justify-center gap-8.1875'>
             <h1 className='text-black'>{headLine}</h1>
           </div>
         </div>
