@@ -1,11 +1,12 @@
-import { Lexend_Deca } from 'next/font/google'
 import React from 'react'
-import './globals.css'
+import { Lexend_Deca } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import clsx from 'clsx'
 
 import SignOutLayout from '@/features/sign-out-layout/layout'
+
+import './globals.css'
 
 const lexendDeca = Lexend_Deca({
   subsets: ['latin'],
