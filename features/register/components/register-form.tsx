@@ -62,7 +62,10 @@ const RegisterForm = () => {
         </h1>
         <div className='flex flex-row justify-between'>
           <div className='w-75'>
-            <Label className='text-white' htmlFor='name1'>
+            <Label
+              className='font-medium leading-normal text-white'
+              htmlFor='pseudonim'
+            >
               Pseudonim
             </Label>
             <TextInput
@@ -74,82 +77,121 @@ const RegisterForm = () => {
                 'border-[#F74746]': errors.pseudonim,
               })}
             />
-            {errors.pseudonim && <p>{errors.pseudonim.message}</p>}
+            {errors.pseudonim && (
+              <p className='text-xs font-extralight leading-normal text-[#F74746]'>
+                {errors.pseudonim.message}
+              </p>
+            )}
           </div>
           <div className='w-75'>
-            <Label className='text-white' htmlFor='name1'>
+            <Label className='text-white' htmlFor='imie'>
               Imię
             </Label>
             <TextInput
-              id='email1'
-              type='email'
-              placeholder='name@flowbite.com'
-              required
+              id='imie'
+              type='text'
+              placeholder='Imię'
+              {...register('imie')}
               color='gray'
             />
+            {errors.imie && (
+              <p className='text-xs font-extralight leading-normal text-[#F74746]'>
+                {errors.imie.message}
+              </p>
+            )}
           </div>
         </div>
         <div className='flex flex-row justify-between'>
           <div className='w-75'>
-            <Label className='text-white' htmlFor='name1'>
+            <Label className='text-white' htmlFor='nazwisko'>
               Nazwisko
             </Label>
             <TextInput
-              id='email1'
-              type='email'
-              placeholder='name@flowbite.com'
-              required
+              id='nazwisko'
+              type='text'
+              placeholder='Nazwisko'
+              {...register('nazwisko')}
               color='gray'
             />
+            {errors.nazwisko && (
+              <p className='text-xs font-extralight leading-normal text-[#F74746]'>
+                {errors.nazwisko.message}
+              </p>
+            )}
           </div>
           <div className='w-75'>
-            <Label className='text-white' htmlFor='name1'>
+            <Label className='text-white' htmlFor='email'>
               Twój e-mail
             </Label>
             <TextInput
-              id='email1'
+              id='email'
               type='email'
-              placeholder='name@flowbite.com'
-              required
+              placeholder='name@example.com'
+              {...register('email')}
               color='gray'
             />
+            {errors.email && (
+              <p className='text-xs font-extralight leading-normal text-[#F74746]'>
+                {errors.email.message}
+              </p>
+            )}
           </div>
         </div>
         <div>
-          <Label className='text-white' htmlFor='email1'>
+          <Label className='text-white' htmlFor='password'>
             Hasło
           </Label>
           <TextInput
-            id='email1'
-            type='email'
-            placeholder='name@flowbite.com'
-            required
+            id='password'
+            type='password'
+            placeholder='*********'
+            {...register('password')}
             color='gray'
           />
+          {errors.password && (
+            <p className='text-xs font-extralight leading-normal text-[#F74746]'>
+              {errors.password.message}
+            </p>
+          )}
         </div>
         <div>
-          <Label className='text-white' htmlFor='email1'>
+          <Label className='text-white' htmlFor='confirmPassword'>
             Potwierdź hasło
           </Label>
           <TextInput
-            id='email1'
-            type='email'
-            placeholder='name@flowbite.com'
-            required
+            id='confirmPassword'
+            type='password'
+            placeholder='*********'
+            {...register('confirmPassword')}
             color='gray'
           />
+          {errors.confirmPassword && (
+            <p className='text-xs font-extralight leading-normal text-[#F74746]'>
+              {errors.confirmPassword.message}
+            </p>
+          )}
         </div>
-        <div className='flex items-center gap-x-4'>
-          <Checkbox id='remember' />
-          <Label className='text-white' htmlFor='remember'>
-            Remember me
-          </Label>
+        <div className='flex flex-col'>
+          <div className='flex items-center gap-x-4'>
+            <Checkbox id='rulesAccespted' {...register('rulesAccepted')} />
+            <Label className='text-white' htmlFor='rulesAccespted'>
+              Akceptuję{' '}
+              <span className='text-primary underline'>zasady i warunki</span>
+            </Label>
+          </div>
+          {errors.rulesAccepted && (
+            <p className='text-xs font-extralight leading-normal text-[#F74746]'>
+              {errors.rulesAccepted.message}
+            </p>
+          )}
         </div>
+
         <Button className='bg-primary' type='submit'>
           Zarejestruj się
         </Button>
         <p className='text-white'>
-          Już masz konto? <span>Zaloguj się</span>
+          Już masz konto?{' '}
+          <span className='text text-primary underline'>Zaloguj się</span>
         </p>
       </form>
     </div>
