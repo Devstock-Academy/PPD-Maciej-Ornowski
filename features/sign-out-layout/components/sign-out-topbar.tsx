@@ -13,7 +13,7 @@ const SignOutTopbar = () => {
       <Link href='/'>
         <DevstockAcademyLogo />
       </Link>
-      <div className=' flex items-center justify-evenly gap-x-10 '>
+      <div className=' flex items-center gap-x-10 '>
         <TextLink href='/'>
           <span>Devstock.pl</span>
         </TextLink>
