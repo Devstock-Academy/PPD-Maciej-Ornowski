@@ -1,6 +1,9 @@
 import { Inter } from 'next/font/google'
 
 import './globals.css'
+import { ThemeProvider } from 'flowbite-react'
+
+import DevStockTheme from '@/components/theme'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +19,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={inter.className}>{children}</body>
+      <ThemeProvider theme={DevStockTheme}>
+        <body className={inter.className}>{children}</body>
+      </ThemeProvider>
     </html>
   )
 }

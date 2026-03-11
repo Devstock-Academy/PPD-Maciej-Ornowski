@@ -57,7 +57,7 @@ const RegisterForm = () => {
   return (
     <div className='flex w-175 flex-col items-center rounded-lg bg-dark-brand p-8 drop-shadow-lg'>
       <form className='flex w-full flex-col gap-y-8'>
-        <h1 className=' text-left text-xl font-extralight text-white'>
+        <h1 className='text-left text-xl font-extralight text-white'>
           Zarejestruj się
         </h1>
         <div className='flex flex-row justify-between'>
@@ -73,9 +73,7 @@ const RegisterForm = () => {
               type='text'
               placeholder='Pseudonim'
               {...register('pseudonim')}
-              className={clsx('border border-gray-600 bg-gray-700', {
-                'border-[#F74746]': errors.pseudonim,
-              })}
+              color='gray'
             />
             {errors.pseudonim && (
               <p className='text-xs font-extralight leading-normal text-[#F74746]'>
