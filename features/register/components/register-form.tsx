@@ -1,4 +1,4 @@
-import { Button, Checkbox, Label, TextInput } from 'flowbite-react'
+import { Button, Checkbox, HelperText, Label, TextInput } from 'flowbite-react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
@@ -76,9 +76,9 @@ const RegisterForm = () => {
               color='gray'
             />
             {errors.pseudonim && (
-              <p className='text-xs font-extralight leading-normal text-[#F74746]'>
+              <HelperText className='text-xs font-extralight leading-normal text-[#F74746]'>
                 {errors.pseudonim.message}
-              </p>
+              </HelperText>
             )}
           </div>
           <div className='w-75'>
@@ -93,9 +93,9 @@ const RegisterForm = () => {
               color='gray'
             />
             {errors.imie && (
-              <p className='text-xs font-extralight leading-normal text-[#F74746]'>
+              <HelperText className='text-xs font-extralight leading-normal text-[#F74746]'>
                 {errors.imie.message}
-              </p>
+              </HelperText>
             )}
           </div>
         </div>
@@ -112,9 +112,9 @@ const RegisterForm = () => {
               color='gray'
             />
             {errors.nazwisko && (
-              <p className='text-xs font-extralight leading-normal text-[#F74746]'>
+              <HelperText className='text-xs font-extralight leading-normal text-[#F74746]'>
                 {errors.nazwisko.message}
-              </p>
+              </HelperText>
             )}
           </div>
           <div className='w-75'>
@@ -129,9 +129,9 @@ const RegisterForm = () => {
               color='gray'
             />
             {errors.email && (
-              <p className='text-xs font-extralight leading-normal text-[#F74746]'>
+              <HelperText className='text-xs font-extralight leading-normal text-[#F74746]'>
                 {errors.email.message}
-              </p>
+              </HelperText>
             )}
           </div>
         </div>
@@ -147,9 +147,9 @@ const RegisterForm = () => {
             color='gray'
           />
           {errors.password && (
-            <p className='text-xs font-extralight leading-normal text-[#F74746]'>
+            <HelperText className='text-xs font-extralight leading-normal text-[#F74746]'>
               {errors.password.message}
-            </p>
+            </HelperText>
           )}
         </div>
         <div>
@@ -164,9 +164,9 @@ const RegisterForm = () => {
             color='gray'
           />
           {errors.confirmPassword && (
-            <p className='text-xs font-extralight leading-normal text-[#F74746]'>
+            <HelperText className='text-xs font-extralight leading-normal text-[#F74746]'>
               {errors.confirmPassword.message}
-            </p>
+            </HelperText>
           )}
         </div>
         <div className='flex flex-col'>
@@ -178,9 +178,9 @@ const RegisterForm = () => {
             </Label>
           </div>
           {errors.rulesAccepted && (
-            <p className='text-xs font-extralight leading-normal text-[#F74746]'>
+            <HelperText className='text-xs font-extralight leading-normal text-[#F74746]'>
               {errors.rulesAccepted.message}
-            </p>
+            </HelperText>
           )}
         </div>
 
