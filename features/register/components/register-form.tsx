@@ -9,34 +9,36 @@ import { useTranslations } from 'next-intl'
 
 import { Modal } from '@/components'
 
-const formSchema = z
-  .object({
-    pseudonim: z.string().min(3, 'Wymagane przynajmniej 3 znaki'),
-    imie: z.string().min(3, 'Wymagane przynajmniej 3 znaki'),
-    nazwisko: z.string().min(3, 'Wymagane przynajmniej 3 znaki'),
-    email: z.email('Niepoprawny adres e-mail').min(1, 'Email jest wymagany'),
-    password: z
-      .string()
-      .min(8, 'Minimum 8 znaków')
-      .regex(/[A-Z]/, 'Przynajmniej 1 duża litera')
-      .regex(/[a-z]/, 'Przynajmniej 1 mała litera')
-      .regex(/[0-9]/, 'Przynajmniej 1 liczba')
-      .regex(/[!@#$%^&*(),.?":{}|<>]/, 'Przynajmniej 1 znak specjalny'),
-    confirmPassword: z
-      .string()
-      .min(1, 'Musi zawierać dokładnie to, co pole hasło.'),
-    rulesAccepted: z.boolean().refine((val) => val === true, {
-      message: 'Musi być zaznaczony!',
-    }),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    path: ['confirmPassword'],
-    message: 'Musi zawierać dokładnie to, co pole hasło.',
-  })
+const createFormSchema = (tv: ReturnType<typeof useTranslations>) =>
+  z
+    .object({
+      nickname: z.string().min(3, tv('validation-text-field-error')),
+      firstname: z.string().min(3, tv('validation-text-field-error')),
+      secondname: z.string().min(3, tv('validation-text-field-error')),
+      email: z
+        .email(tv('validation-email'))
+        .min(1, tv('validation-email-required')),
+      password: z
+        .string()
+        .min(8, tv('validation-pass'))
+        .regex(/[A-Z]/, tv('validation-pass-capital'))
+        .regex(/[a-z]/, tv('validation-pass-small'))
+        .regex(/[0-9]/, tv('validation-pass-numbers'))
+        .regex(/[!@#$%^&*(),.?":{}|<>]/, tv('validation-pass-specials')),
+      confirmPassword: z.string().min(1, tv('validation-repass')),
+      rulesAccepted: z.boolean().refine((val) => val === true, {
+        message: tv('validation-checkbox'),
+      }),
+    })
+    .refine((data) => data.password === data.confirmPassword, {
+      path: ['confirmPassword'],
+      message: tv('validation-repass'),
+    })
 
-type FormData = z.infer<typeof formSchema>
+type FormData = z.infer<ReturnType<typeof createFormSchema>>
 
 const RegisterForm = () => {
+  const tv = useTranslations('RegisterForm')
   const t = useTranslations('RegisterForm')
   const {
     register,
@@ -44,7 +46,7 @@ const RegisterForm = () => {
     reset,
     formState: { errors, isSubmitting },
   } = useForm<FormData>({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(createFormSchema(tv)),
     mode: 'onBlur',
   })
 
@@ -72,56 +74,56 @@ const RegisterForm = () => {
           <div className='w-75'>
             <Label
               className='font-medium leading-normal text-white'
-              htmlFor='pseudonim'
+              htmlFor='nickname'
             >
               {t('form-field-nick')}
             </Label>
             <TextInput
-              id='pseudonim'
+              id='nickname'
               type='text'
               placeholder={t('form-field-nick')}
-              {...register('pseudonim')}
+              {...register('nickname')}
               color='gray'
             />
-            {errors.pseudonim && (
+            {errors.nickname && (
               <HelperText className='text-xs font-extralight leading-normal text-[#F74746]'>
-                {errors.pseudonim.message}
+                {errors.nickname.message}
               </HelperText>
             )}
           </div>
           <div className='w-75'>
-            <Label className='text-white' htmlFor='imie'>
+            <Label className='text-white' htmlFor='firstname'>
               {t('form-field-first-name')}
             </Label>
             <TextInput
-              id='imie'
+              id='firstname'
               type='text'
               placeholder={t('form-field-first-name')}
-              {...register('imie')}
+              {...register('firstname')}
               color='gray'
             />
-            {errors.imie && (
+            {errors.firstname && (
               <HelperText className='text-xs font-extralight leading-normal text-[#F74746]'>
-                {errors.imie.message}
+                {errors.firstname.message}
               </HelperText>
             )}
           </div>
         </div>
         <div className='flex flex-row justify-between'>
           <div className='w-75'>
-            <Label className='text-white' htmlFor='nazwisko'>
+            <Label className='text-white' htmlFor='secondname'>
               {t('form-field-second-name')}
             </Label>
             <TextInput
-              id='nazwisko'
+              id='secondname'
               type='text'
               placeholder={t('form-field-second-name')}
-              {...register('nazwisko')}
+              {...register('secondname')}
               color='gray'
             />
-            {errors.nazwisko && (
+            {errors.secondname && (
               <HelperText className='text-xs font-extralight leading-normal text-[#F74746]'>
-                {errors.nazwisko.message}
+                {errors.secondname.message}
               </HelperText>
             )}
           </div>
