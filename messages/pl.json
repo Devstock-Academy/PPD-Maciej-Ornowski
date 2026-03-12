@@ -22,10 +22,23 @@
     "descriptionMain": "Codebusters pozwoli Ci poznawać i w praktyce ćwiczyć technologie Front-end, takie jak HTML5, CSS oraz JavaScript! ",
     "descriptionSupport": "Możesz rozwiązywać zadania, piąć się w rankingu, zdobywać osiagnięcia i poziomy znajomości różnych technologii, a nawet wyeksportować swoje wyniki i pochwalić się nimi!"
   },
-  "Modal": {
-    "head-line": "Potwierdź  rejestrację!",
-    "message-email-verification": "Przesłaliśmy link aktywacyjny na adres {email}, prosimy o weryfikację :)",
-    "message-delivery-confirmation-question": "Mail aktywacyjny nie dotarł?",
-    "resend-button": "Prześlij ponownie"
+  "RegisterForm": {
+    "form-head-line": "Zarejestruj się",
+    "form-field-nick": "Pseudonim",
+    "form-field-first-name": "Imię",
+    "form-field-second-name": "Nazwisko",
+    "form-field-email": "Twój e-mail",
+    "form-field-password": "Hasło",
+    "form-field-password-confirm": "Potwierdź hasło",
+    "form-field-rules": "Akceptuję",
+    "form-field-rules-link": "zasady i warunki",
+    "form-submit": "Zarejestruj się",
+    "account-question": "Masz już konto?",
+    "nav-text-login": "Zaloguj się",
+
+    "modal-head-line": "Potwierdź  rejestrację!",
+    "modal-email-verification": "Przesłaliśmy link aktywacyjny na adres {email}, prosimy o weryfikację :)",
+    "modal-delivery-confirmation-question": "Mail aktywacyjny nie dotarł?",
+    "modal-resend-button": "Prześlij ponownie"
   }
 }

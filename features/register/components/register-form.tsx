@@ -1,13 +1,13 @@
 'use client'
 
+import React from 'react'
 import { Button, Checkbox, HelperText, Label, TextInput } from 'flowbite-react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
-import React from 'react'
-import clsx from 'clsx'
+import { useTranslations } from 'next-intl'
 
-import ModalFlow from '@/components/modal-flowbite'
+import { Modal } from '@/components'
 
 const formSchema = z
   .object({
@@ -37,6 +37,7 @@ const formSchema = z
 type FormData = z.infer<typeof formSchema>
 
 const RegisterForm = () => {
+  const t = useTranslations('RegisterForm')
   const {
     register,
     handleSubmit,
@@ -65,7 +66,7 @@ const RegisterForm = () => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <h1 className='text-left text-xl font-extralight text-white'>
-          Zarejestruj się
+          {t('form-head-line')}
         </h1>
         <div className='flex flex-row justify-between'>
           <div className='w-75'>
@@ -73,12 +74,12 @@ const RegisterForm = () => {
               className='font-medium leading-normal text-white'
               htmlFor='pseudonim'
             >
-              Pseudonim
+              {t('form-field-nick')}
             </Label>
             <TextInput
               id='pseudonim'
               type='text'
-              placeholder='Pseudonim'
+              placeholder={t('form-field-nick')}
               {...register('pseudonim')}
               color='gray'
             />
@@ -90,12 +91,12 @@ const RegisterForm = () => {
           </div>
           <div className='w-75'>
             <Label className='text-white' htmlFor='imie'>
-              Imię
+              {t('form-field-first-name')}
             </Label>
             <TextInput
               id='imie'
               type='text'
-              placeholder='Imię'
+              placeholder={t('form-field-first-name')}
               {...register('imie')}
               color='gray'
             />
@@ -109,12 +110,12 @@ const RegisterForm = () => {
         <div className='flex flex-row justify-between'>
           <div className='w-75'>
             <Label className='text-white' htmlFor='nazwisko'>
-              Nazwisko
+              {t('form-field-second-name')}
             </Label>
             <TextInput
               id='nazwisko'
               type='text'
-              placeholder='Nazwisko'
+              placeholder={t('form-field-second-name')}
               {...register('nazwisko')}
               color='gray'
             />
@@ -126,7 +127,7 @@ const RegisterForm = () => {
           </div>
           <div className='w-75'>
             <Label className='text-white' htmlFor='email'>
-              Twój e-mail
+              {t('form-field-email')}
             </Label>
             <TextInput
               id='email'
@@ -144,7 +145,7 @@ const RegisterForm = () => {
         </div>
         <div>
           <Label className='text-white' htmlFor='password'>
-            Hasło
+            {t('form-field-password')}
           </Label>
           <TextInput
             id='password'
@@ -161,7 +162,7 @@ const RegisterForm = () => {
         </div>
         <div>
           <Label className='text-white' htmlFor='confirmPassword'>
-            Potwierdź hasło
+            {t('form-field-password-confirm')}
           </Label>
           <TextInput
             id='confirmPassword'
@@ -180,8 +181,10 @@ const RegisterForm = () => {
           <div className='flex items-center gap-x-4'>
             <Checkbox id='rulesAccespted' {...register('rulesAccepted')} />
             <Label className='text-white' htmlFor='rulesAccespted'>
-              Akceptuję{' '}
-              <span className='text-primary underline'>zasady i warunki</span>
+              {t('form-field-rules')}
+              <span className='text-primary underline'>
+                {t('form-field-rules-link')}
+              </span>
             </Label>
           </div>
           {errors.rulesAccepted && (
@@ -192,21 +195,25 @@ const RegisterForm = () => {
         </div>
 
         <Button className='bg-primary' type='submit' disabled={isSubmitting}>
-          Zarejestruj się
+          {t('form-submit')}
         </Button>
         <p className='text-white'>
-          Już masz konto?{' '}
-          <span className='text text-primary underline'>Zaloguj się</span>
+          {t('account-question')}
+          <span className='text text-primary underline'>
+            {t('nav-text-login')}
+          </span>
         </p>
-        <ModalFlow
+        <Modal
           show={showModal}
-          header={<h1>To jest header</h1>}
-          body={<p>To jest contetn nice :-)</p>}
+          header={<h1>{t('modal-head-line')}</h1>}
+          body={<p>{t('modal-email-verification')}</p>}
           footer={
             <Button
               onClick={() => setShowModal(false)}
               className='w-75 rounded-md bg-primary px-3 py-2 text-xs leading-6 text-white hover:bg-primary-800 '
-            ></Button>
+            >
+              {t('modal-resend-button')}
+            </Button>
           }
         />
       </form>
