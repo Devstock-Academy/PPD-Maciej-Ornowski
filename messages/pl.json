@@ -21,5 +21,11 @@
     "bottomCardLink": "Poznaj nas",
     "descriptionMain": "Codebusters pozwoli Ci poznawać i w praktyce ćwiczyć technologie Front-end, takie jak HTML5, CSS oraz JavaScript! ",
     "descriptionSupport": "Możesz rozwiązywać zadania, piąć się w rankingu, zdobywać osiagnięcia i poziomy znajomości różnych technologii, a nawet wyeksportować swoje wyniki i pochwalić się nimi!"
+  },
+  "Modal": {
+    "head-line": "Potwierdź  rejestrację!",
+    "message-email-verification": "Przesłaliśmy link aktywacyjny na adres {email}, prosimy o weryfikację :)",
+    "message-delivery-confirmation-question": "Mail aktywacyjny nie dotarł?",
+    "resend-button": "Prześlij ponownie"
   }
 }

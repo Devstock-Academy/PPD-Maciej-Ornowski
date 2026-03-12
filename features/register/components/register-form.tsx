@@ -1,9 +1,13 @@
+'use client'
+
 import { Button, Checkbox, HelperText, Label, TextInput } from 'flowbite-react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import React from 'react'
 import clsx from 'clsx'
+
+import ModalFlow from '@/components/modal-flowbite'
 
 const formSchema = z
   .object({
@@ -56,7 +60,10 @@ const RegisterForm = () => {
 
   return (
     <div className='flex w-175 flex-col items-center rounded-lg bg-dark-brand p-8 drop-shadow-lg'>
-      <form className='flex w-full flex-col gap-y-8'>
+      <form
+        className='flex w-full flex-col gap-y-8'
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <h1 className='text-left text-xl font-extralight text-white'>
           Zarejestruj się
         </h1>
@@ -184,13 +191,24 @@ const RegisterForm = () => {
           )}
         </div>
 
-        <Button className='bg-primary' type='submit'>
+        <Button className='bg-primary' type='submit' disabled={isSubmitting}>
           Zarejestruj się
         </Button>
         <p className='text-white'>
           Już masz konto?{' '}
           <span className='text text-primary underline'>Zaloguj się</span>
         </p>
+        <ModalFlow
+          show={showModal}
+          header={<h1>To jest header</h1>}
+          body={<p>To jest contetn nice :-)</p>}
+          footer={
+            <Button
+              onClick={() => setShowModal(false)}
+              className='w-75 rounded-md bg-primary px-3 py-2 text-xs leading-6 text-white hover:bg-primary-800 '
+            ></Button>
+          }
+        />
       </form>
     </div>
   )
