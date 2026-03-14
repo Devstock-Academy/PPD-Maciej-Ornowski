@@ -1,8 +1,24 @@
-import { useTranslations } from 'next-intl'
+'use client'
 
-const Modal = () => {
-  const t = useTranslations('Modal')
-  return <div>Modal</div>
+import React from 'react'
+import {
+  Modal as FlowbiteModal,
+  Button,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from 'flowbite-react'
+
+type ModalProps = {
+  children: React.ReactNode
+} & React.ComponentProps<typeof FlowbiteModal>
+
+const ModalFlow: React.FC<ModalProps> = ({ children, ...props }) => {
+  return (
+    <FlowbiteModal data-testid='modal' {...props}>
+      {children}
+    </FlowbiteModal>
+  )
 }
 
-export default Modal
+export default ModalFlow
