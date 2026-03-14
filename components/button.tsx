@@ -15,17 +15,18 @@ type ButtonProps = {
     | 'dark'
     | 'grey'
     | 'blue'
+    | 'orange'
   className?: string
 } & React.ComponentProps<typeof FlowbiteButton>
 
-const Button = ({
+const Button: React.FC<ButtonProps> = ({
   children,
   onClick,
   color = 'red',
   size = 'md',
   className,
   ...props
-}: ButtonProps) => {
+}) => {
   return (
     <FlowbiteButton
       color={color}
