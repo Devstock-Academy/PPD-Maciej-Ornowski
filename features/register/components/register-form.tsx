@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Button } from 'flowbite-react'
+import { Button, ModalBody, ModalFooter, ModalHeader } from 'flowbite-react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
@@ -132,14 +132,14 @@ const RegisterForm = () => {
           {...register('confirmPassword')}
           color={errors.confirmPassword ? 'failure' : 'gray'}
         />
-        <div className='flex flex-row'>
+        <div className='flex flex-row items-center'>
           <Checkbox
             id='rulesAccespted'
             label={t('form-field-rules')}
             error={errors.rulesAccepted?.message}
             {...register('rulesAccepted')}
           />
-          <TextLink className='text-primary underline' href='/'>
+          <TextLink className='text-sm text-primary underline' href='/'>
             {t('form-field-rules-link')}
           </TextLink>
         </div>
@@ -148,24 +148,30 @@ const RegisterForm = () => {
           {t('form-submit')}
         </Button>
         <p className='text-white'>
-          {t('account-question')}
-          <span className='text text-primary underline'>
+          {t('account-question')}{' '}
+          <TextLink className='text-sm text-primary underline' href='/'>
             {t('nav-text-login')}
-          </span>
+          </TextLink>
         </p>
-        <Modal
-          show={showModal}
-          header={<h1>{t('modal-head-line')}</h1>}
-          body={<p>{t('modal-email-verification')}</p>}
-          footer={
+        <Modal show={showModal}>
+          <div className='flex flex-col items-center gap-y-8 rounded-lg bg-dark-brand py-8'>
+            <p className='text-2xl font-extralight text-white'>
+              {t('modal-head-line')}
+            </p>
+            <p className='font-medium text-white'>
+              {t('modal-email-verification', { email })}
+            </p>
+            <p className='font-medium text-white'>
+              {t('modal-delivery-confirmation-question')}
+            </p>
             <Button
               onClick={() => setShowModal(false)}
-              className='w-75 rounded-md bg-primary px-3 py-2 text-xs leading-6 text-white hover:bg-primary-800 '
+              className='w-75 rounded-md bg-primary px-3 py-2 text-lg leading-6 text-white hover:bg-primary-800 '
             >
               {t('modal-resend-button')}
             </Button>
-          }
-        />
+          </div>
+        </Modal>
       </form>
     </div>
   )
