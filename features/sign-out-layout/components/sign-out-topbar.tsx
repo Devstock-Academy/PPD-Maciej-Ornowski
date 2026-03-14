@@ -21,7 +21,10 @@ const SignOutTopbar = () => {
         <TextLink className='text-white' href='/'>
           <span>{t('login')}</span>
         </TextLink>
-        <NavButton className='w-34 rounded-md bg-primary px-3 py-2 text-xs leading-6 text-white hover:bg-primary-800 '>
+        <NavButton
+          href='/register'
+          className='w-34 rounded-md bg-primary px-3 py-2 text-xs leading-6 text-white hover:bg-primary-800 '
+        >
           {t('sign-up')}
         </NavButton>
       </div>

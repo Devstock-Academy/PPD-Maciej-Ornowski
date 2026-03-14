@@ -138,10 +138,14 @@ const RegisterForm = () => {
             label={t('form-field-rules')}
             error={errors.rulesAccepted?.message}
             {...register('rulesAccepted')}
-          />
-          <TextLink className='text-sm text-primary underline' href='/'>
-            {t('form-field-rules-link')}
-          </TextLink>
+          >
+            <span className='text-white'>
+              {t('form-field-rules')}{' '}
+              <TextLink className=' text-primary underline' href='/'>
+                {t('form-field-rules-link')}
+              </TextLink>
+            </span>
+          </Checkbox>
         </div>
 
         <Button className='bg-primary' type='submit' disabled={isSubmitting}>
@@ -149,7 +153,7 @@ const RegisterForm = () => {
         </Button>
         <p className='text-white'>
           {t('account-question')}{' '}
-          <TextLink className='text-sm text-primary underline' href='/'>
+          <TextLink className=' text-primary underline' href='/'>
             {t('nav-text-login')}
           </TextLink>
         </p>
