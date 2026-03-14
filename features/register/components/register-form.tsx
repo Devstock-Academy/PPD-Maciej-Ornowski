@@ -1,13 +1,13 @@
 'use client'
 
 import React from 'react'
-import { Button, Checkbox, Label, TextInput, HelperText } from 'flowbite-react'
+import { Button } from 'flowbite-react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { useTranslations } from 'next-intl'
 
-import { Modal, Input } from '@/components'
+import { Modal, Input, Checkbox, TextLink } from '@/components'
 
 const createFormSchema = (tv: ReturnType<typeof useTranslations>) =>
   z
@@ -132,22 +132,16 @@ const RegisterForm = () => {
           {...register('confirmPassword')}
           color={errors.confirmPassword ? 'failure' : 'gray'}
         />
-
-        <div className='flex flex-col'>
-          <div className='flex items-center gap-x-4'>
-            <Checkbox id='rulesAccespted' {...register('rulesAccepted')} />
-            <Label className='text-white' htmlFor='rulesAccespted'>
-              {t('form-field-rules')}
-              <span className='text-primary underline'>
-                {t('form-field-rules-link')}
-              </span>
-            </Label>
-          </div>
-          {errors.rulesAccepted && (
-            <HelperText className='text-xs font-extralight leading-normal text-[#F74746]'>
-              {errors.rulesAccepted.message}
-            </HelperText>
-          )}
+        <div className='flex flex-row'>
+          <Checkbox
+            id='rulesAccespted'
+            label={t('form-field-rules')}
+            error={errors.rulesAccepted?.message}
+            {...register('rulesAccepted')}
+          />
+          <TextLink className='bg-primary underline' href='/'>
+            {t('form-field-rules-link')}
+          </TextLink>
         </div>
 
         <Button className='bg-primary' type='submit' disabled={isSubmitting}>
