@@ -18,6 +18,7 @@ module.exports = {
           800: '#0056B3',
         },
         'dark-brand': '#222426',
+        'red-brand': '#F74746',
         'rich-black': '#121415',
         'hero-overlay': '#1B2124',
       },
