@@ -102,10 +102,11 @@ const Content = ({
         <p className='text-lg font-extralight text-gray-500'>
           {t('bottomCardText')}
         </p>
-        <TextLink href='/'>
-          <span className='font-medium leading-normal text-primary-600'>
-            {t('bottomCardLink')} {'>'}
-          </span>
+        <TextLink
+          className='font-medium leading-normal text-primary-600'
+          href='/'
+        >
+          {t('bottomCardLink')} {'>'}
         </TextLink>
       </Card>
     </div>

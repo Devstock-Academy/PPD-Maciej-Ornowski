@@ -139,7 +139,7 @@ const RegisterForm = () => {
             error={errors.rulesAccepted?.message}
             {...register('rulesAccepted')}
           />
-          <TextLink className='bg-primary underline' href='/'>
+          <TextLink className='text-primary underline' href='/'>
             {t('form-field-rules-link')}
           </TextLink>
         </div>
