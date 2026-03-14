@@ -1,13 +1,13 @@
 'use client'
 
 import React from 'react'
-import { Button, Checkbox, HelperText, Label, TextInput } from 'flowbite-react'
+import { Button, Checkbox, Label, TextInput, HelperText } from 'flowbite-react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { useTranslations } from 'next-intl'
 
-import { Modal } from '@/components'
+import { Modal, Input } from '@/components'
 
 const createFormSchema = (tv: ReturnType<typeof useTranslations>) =>
   z
@@ -70,115 +70,69 @@ const RegisterForm = () => {
         <h1 className='text-left text-xl font-extralight text-white'>
           {t('form-head-line')}
         </h1>
-        <div className='flex flex-row justify-between'>
-          <div className='w-75'>
-            <Label
-              className='font-medium leading-normal text-white'
-              htmlFor='nickname'
-            >
-              {t('form-field-nick')}
-            </Label>
-            <TextInput
+        <div className='flex flex-row justify-between gap-x-9'>
+          <div className='w-full'>
+            <Input
               id='nickname'
-              type='text'
+              label={t('form-field-nick')}
               placeholder={t('form-field-nick')}
+              error={errors.nickname?.message}
               {...register('nickname')}
-              color='gray'
+              color={errors.nickname ? 'failure' : 'gray'}
             />
-            {errors.nickname && (
-              <HelperText className='text-xs font-extralight leading-normal text-[#F74746]'>
-                {errors.nickname.message}
-              </HelperText>
-            )}
           </div>
-          <div className='w-75'>
-            <Label className='text-white' htmlFor='firstname'>
-              {t('form-field-first-name')}
-            </Label>
-            <TextInput
+          <div className='w-full'>
+            <Input
               id='firstname'
-              type='text'
+              label={t('form-field-first-name')}
               placeholder={t('form-field-first-name')}
+              error={errors.firstname?.message}
               {...register('firstname')}
-              color='gray'
+              color={errors.firstname ? 'failure' : 'gray'}
             />
-            {errors.firstname && (
-              <HelperText className='text-xs font-extralight leading-normal text-[#F74746]'>
-                {errors.firstname.message}
-              </HelperText>
-            )}
           </div>
         </div>
-        <div className='flex flex-row justify-between'>
-          <div className='w-75'>
-            <Label className='text-white' htmlFor='secondname'>
-              {t('form-field-second-name')}
-            </Label>
-            <TextInput
+        <div className='flex flex-row justify-between gap-x-9'>
+          <div className='w-full'>
+            <Input
               id='secondname'
-              type='text'
+              label={t('form-field-second-name')}
               placeholder={t('form-field-second-name')}
+              error={errors.secondname?.message}
               {...register('secondname')}
-              color='gray'
+              color={errors.secondname ? 'failure' : 'gray'}
             />
-            {errors.secondname && (
-              <HelperText className='text-xs font-extralight leading-normal text-[#F74746]'>
-                {errors.secondname.message}
-              </HelperText>
-            )}
           </div>
-          <div className='w-75'>
-            <Label className='text-white' htmlFor='email'>
-              {t('form-field-email')}
-            </Label>
-            <TextInput
+          <div className='w-full'>
+            <Input
               id='email'
-              type='email'
+              label={t('form-field-email')}
               placeholder='name@example.com'
+              error={errors.email?.message}
               {...register('email')}
-              color='gray'
+              color={errors.email ? 'failure' : 'gray'}
             />
-            {errors.email && (
-              <HelperText className='text-xs font-extralight leading-normal text-[#F74746]'>
-                {errors.email.message}
-              </HelperText>
-            )}
           </div>
         </div>
-        <div>
-          <Label className='text-white' htmlFor='password'>
-            {t('form-field-password')}
-          </Label>
-          <TextInput
-            id='password'
-            type='password'
-            placeholder='*********'
-            {...register('password')}
-            color='gray'
-          />
-          {errors.password && (
-            <HelperText className='text-xs font-extralight leading-normal text-[#F74746]'>
-              {errors.password.message}
-            </HelperText>
-          )}
-        </div>
-        <div>
-          <Label className='text-white' htmlFor='confirmPassword'>
-            {t('form-field-password-confirm')}
-          </Label>
-          <TextInput
-            id='confirmPassword'
-            type='password'
-            placeholder='*********'
-            {...register('confirmPassword')}
-            color='gray'
-          />
-          {errors.confirmPassword && (
-            <HelperText className='text-xs font-extralight leading-normal text-[#F74746]'>
-              {errors.confirmPassword.message}
-            </HelperText>
-          )}
-        </div>
+        <Input
+          id='password'
+          type='password'
+          label={t('form-field-password')}
+          placeholder='*********'
+          error={errors.password?.message}
+          {...register('password')}
+          color={errors.password ? 'failure' : 'gray'}
+        />
+        <Input
+          id='confirmPassword'
+          type='password'
+          label={t('form-field-password-confirm')}
+          placeholder='*********'
+          error={errors.confirmPassword?.message}
+          {...register('confirmPassword')}
+          color={errors.confirmPassword ? 'failure' : 'gray'}
+        />
+
         <div className='flex flex-col'>
           <div className='flex items-center gap-x-4'>
             <Checkbox id='rulesAccespted' {...register('rulesAccepted')} />
