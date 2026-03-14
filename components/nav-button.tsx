@@ -10,7 +10,11 @@ type NavButtonProps = {
   href?: string
 } & Omit<ButtonProps, 'onClick'>
 
-const NavButton = ({ href = '/', children, ...props }: NavButtonProps) => {
+const NavButton: React.FC<NavButtonProps> = ({
+  href = '/',
+  children,
+  ...props
+}) => {
   return (
     <Link href={href}>
       <Button {...props} onClick={() => {}}>
