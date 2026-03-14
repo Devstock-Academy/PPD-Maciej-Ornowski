@@ -18,9 +18,9 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         </Label>
         <TextInput ref={ref} {...props} />
         {error && (
-          <HelperText className='text-xs font-extralight leading-normal text-red-brand'>
+          <p className='text-xs font-extralight leading-normal text-red-brand'>
             {error}
-          </HelperText>
+          </p>
         )}
       </div>
     )
