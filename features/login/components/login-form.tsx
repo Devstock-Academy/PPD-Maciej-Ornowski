@@ -35,7 +35,7 @@ const LoginForm = () => {
   })
 
   const onSubmit = (data: FormData) => {
-    console.log('Only for demo:', data)
+    return data
   }
 
   return (
