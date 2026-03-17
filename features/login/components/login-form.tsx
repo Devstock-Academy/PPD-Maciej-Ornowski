@@ -37,7 +37,7 @@ const LoginForm = () => {
   }
 
   return (
-    <div className='flex w-175 flex-col items-center rounded-lg bg-dark-brand p-8 drop-shadow-lg'>
+    <div className='flex w-112 flex-col items-center rounded-lg bg-dark-brand p-8 drop-shadow-lg'>
       <form
         className='flex w-full flex-col gap-y-8'
         onSubmit={handleSubmit(onSubmit)}
@@ -68,21 +68,28 @@ const LoginForm = () => {
             label={t('form-field-remember')}
             {...register('rememberLogin')}
           >
-            <span className='text-white'>{t('form-field-remember')}</span>
+            <span className='text-sm font-medium leading-normal text-white'>
+              {t('form-field-remember')}
+            </span>
           </Checkbox>
         </div>
-
-        <Button className='bg-primary' type='submit'>
-          {t('form-submit')}
-        </Button>
-        <p className='text-white'>
-          <TextLink className=' text-primary underline' href='/'>
-            {t('account-question')}
+        <div className='flex flex-col'>
+          <Button className='bg-primary' type='submit'>
+            {t('form-submit')}
+          </Button>
+          <TextLink className=' text-sm text-primary underline' href='/'>
+            {t('text-link-restore-password')}
           </TextLink>
-        </p>
-        <Button className='bg-primary' type='submit'>
+        </div>
+        <Button className='bg-rich-black' type='submit'>
           {t('form-button-login-github')}
         </Button>
+        <span className='text-sm text-white'>
+          {t('account-question')}{' '}
+          <TextLink className=' text-primary underline' href='/'>
+            {t('text-link-login')}
+          </TextLink>
+        </span>
       </form>
     </div>
   )

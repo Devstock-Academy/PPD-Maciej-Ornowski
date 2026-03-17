@@ -56,12 +56,12 @@
     "form-field-password": "Hasło",
     "form-field-remember": "Zapamniętaj mnie",
     "form-submit": "Zaloguj się",
-    "form-link-restore": "Nie pamiętam hasła",
+    "text-link-restore-password": "Nie pamiętam hasła",
     "form-button-login-github": "Logowanie się przez GitHub",
     "account-question": "Nie masz jeszcze konta?",
-    "nav-text-login": "Zarejestruj się",
-    "validation-email": "Niepoprawny adres e-mail",
+    "text-link-login": "Zarejestruj się",
+    "validation-email": "E-mail musi mieć poprawny format",
     "validation-email-required": "Email jest wymagany",
-    "validation-pass": "Hasło jest wymagane"
+    "validation-pass": "Coś poszło nie tak!"
   }
 }
