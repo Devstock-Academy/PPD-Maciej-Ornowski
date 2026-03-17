@@ -9,6 +9,8 @@ import { zodResolver } from '@hookform/resolvers/zod'
 
 import { Input, Checkbox, TextLink } from '@/components'
 
+import SocialMediaIconPicker from '../../sign-out-layout/components/social-media-icon-picker'
+
 const createFormSchema = (tv: ReturnType<typeof useTranslations>) =>
   z.object({
     email: z
@@ -81,8 +83,9 @@ const LoginForm = () => {
             {t('text-link-restore-password')}
           </TextLink>
         </div>
-        <Button className='bg-rich-black' type='submit'>
+        <Button className='gap-x-4 bg-rich-black text-white' type='submit'>
           {t('form-button-login-github')}
+          <SocialMediaIconPicker name='github' />
         </Button>
         <span className='text-sm text-white'>
           {t('account-question')}{' '}
