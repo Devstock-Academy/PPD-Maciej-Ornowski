@@ -59,7 +59,7 @@
     "text-link-restore-password": "Nie pamiętam hasła",
     "form-button-login-github": "Logowanie się przez GitHub",
     "account-question": "Nie masz jeszcze konta?",
-    "text-link-login": "Zarejestruj się",
+    "text-link-register": "Zarejestruj się",
     "validation-email": "E-mail musi mieć poprawny format",
     "validation-email-required": "Email jest wymagany",
     "validation-pass": "Coś poszło nie tak!"

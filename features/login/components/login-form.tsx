@@ -1,13 +1,12 @@
 'use client'
 
 import React from 'react'
-import { Button } from 'flowbite-react'
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { useTranslations } from 'next-intl'
 import { zodResolver } from '@hookform/resolvers/zod'
 
-import { Input, Checkbox, TextLink } from '@/components'
+import { Input, Checkbox, TextLink, Button } from '@/components'
 
 import SocialMediaIconPicker from '../../sign-out-layout/components/social-media-icon-picker'
 
@@ -48,6 +47,7 @@ const LoginForm = () => {
           {t('form-head-line')}
         </h1>
         <Input
+          testId='email'
           id='email'
           label={t('form-field-email')}
           placeholder='name@example.com'
@@ -56,6 +56,7 @@ const LoginForm = () => {
           color={errors.email ? 'failure' : 'gray'}
         />
         <Input
+          testId='password'
           id='password'
           type='password'
           label={t('form-field-password')}
@@ -76,7 +77,7 @@ const LoginForm = () => {
           </Checkbox>
         </div>
         <div className='flex flex-col'>
-          <Button className='bg-primary' type='submit'>
+          <Button className='bg-primary' type='submit' testId='submit'>
             {t('form-submit')}
           </Button>
           <TextLink className=' text-sm text-primary underline' href='/'>
@@ -89,8 +90,8 @@ const LoginForm = () => {
         </Button>
         <span className='text-sm text-white'>
           {t('account-question')}{' '}
-          <TextLink className=' text-primary underline' href='/'>
-            {t('text-link-login')}
+          <TextLink className=' text-primary underline' href='/register'>
+            {t('text-link-register')}
           </TextLink>
         </span>
       </form>

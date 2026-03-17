@@ -1,13 +1,12 @@
 'use client'
 
 import React from 'react'
-import { Button, ModalBody, ModalFooter, ModalHeader } from 'flowbite-react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { useTranslations } from 'next-intl'
 
-import { Modal, Input, Checkbox, TextLink } from '@/components'
+import { Modal, Input, Checkbox, TextLink, Button } from '@/components'
 
 const createFormSchema = (tv: ReturnType<typeof useTranslations>) =>
   z
@@ -73,6 +72,7 @@ const RegisterForm = () => {
         <div className='flex flex-row justify-between gap-x-9'>
           <div className='w-full'>
             <Input
+              testId='nick'
               id='nickname'
               label={t('form-field-nick')}
               placeholder={t('form-field-nick')}
@@ -83,6 +83,7 @@ const RegisterForm = () => {
           </div>
           <div className='w-full'>
             <Input
+              testId='name'
               id='firstname'
               label={t('form-field-first-name')}
               placeholder={t('form-field-first-name')}
@@ -95,6 +96,7 @@ const RegisterForm = () => {
         <div className='flex flex-row justify-between gap-x-9'>
           <div className='w-full'>
             <Input
+              testId='lastName'
               id='secondname'
               label={t('form-field-second-name')}
               placeholder={t('form-field-second-name')}
@@ -105,6 +107,7 @@ const RegisterForm = () => {
           </div>
           <div className='w-full'>
             <Input
+              testId='email'
               id='email'
               label={t('form-field-email')}
               placeholder='name@example.com'
@@ -115,6 +118,7 @@ const RegisterForm = () => {
           </div>
         </div>
         <Input
+          testId='password'
           id='password'
           type='password'
           label={t('form-field-password')}
@@ -124,6 +128,7 @@ const RegisterForm = () => {
           color={errors.password ? 'failure' : 'gray'}
         />
         <Input
+          testId='confirmPassword'
           id='confirmPassword'
           type='password'
           label={t('form-field-password-confirm')}
@@ -134,12 +139,13 @@ const RegisterForm = () => {
         />
         <div className='flex flex-row items-center'>
           <Checkbox
+            testId='acceptTerms'
             id='rulesAccespted'
             label={t('form-field-rules')}
             error={errors.rulesAccepted?.message}
             {...register('rulesAccepted')}
           >
-            <span className='text-white'>
+            <span className='text-sm text-white'>
               {t('form-field-rules')}{' '}
               <TextLink className=' text-primary underline' href='/'>
                 {t('form-field-rules-link')}
@@ -148,15 +154,20 @@ const RegisterForm = () => {
           </Checkbox>
         </div>
 
-        <Button className='bg-primary' type='submit' disabled={isSubmitting}>
+        <Button
+          className='bg-primary'
+          type='submit'
+          testId='registrationSubmit'
+          disabled={isSubmitting}
+        >
           {t('form-submit')}
         </Button>
-        <p className='text-white'>
+        <span className='text-white'>
           {t('account-question')}{' '}
           <TextLink className=' text-primary underline' href='/'>
             {t('nav-text-login')}
           </TextLink>
-        </p>
+        </span>
         <Modal show={showModal}>
           <div className='flex flex-col items-center gap-y-8 rounded-lg bg-dark-brand py-8'>
             <p className='text-2xl font-extralight text-white'>

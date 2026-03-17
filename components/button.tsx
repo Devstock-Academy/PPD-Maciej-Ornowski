@@ -2,39 +2,19 @@ import { Button as FlowbiteButton } from 'flowbite-react'
 import React from 'react'
 
 type ButtonProps = {
-  children: React.ReactNode
-  onClick: () => void
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-  color?:
-    | 'primary'
-    | 'green'
-    | 'red'
-    | 'white'
-    | 'alternative-dark'
-    | 'alternative'
-    | 'dark'
-    | 'grey'
-    | 'blue'
-    | 'orange'
+  children?: React.ReactNode
   className?: string
+  testId?: string
 } & React.ComponentProps<typeof FlowbiteButton>
 
 const Button: React.FC<ButtonProps> = ({
   children,
-  onClick,
-  color = 'red',
-  size = 'md',
   className,
+  testId,
   ...props
 }) => {
   return (
-    <FlowbiteButton
-      color={color}
-      size={size}
-      onClick={onClick}
-      className={className}
-      {...props}
-    >
+    <FlowbiteButton className={className} data-testid={testId} {...props}>
       {children}
     </FlowbiteButton>
   )
