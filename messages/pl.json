@@ -45,10 +45,23 @@
     "validation-pass-specials": "Przynajmniej 1 znak specjalny",
     "validation-repass": "Musi zawierać dokładnie to, co pole hasło",
     "validation-checkbox": "Musi być zaznaczony!",
-
     "modal-head-line": "Potwierdź  rejestrację!",
     "modal-email-verification": "Przesłaliśmy link aktywacyjny na adres {email}, prosimy o weryfikację :)",
     "modal-delivery-confirmation-question": "Mail aktywacyjny nie dotarł?",
     "modal-resend-button": "Prześlij ponownie"
+  },
+  "LoginForm": {
+    "form-head-line": "Zaloguj się",
+    "form-field-email": "Twój e-mail",
+    "form-field-password": "Hasło",
+    "form-field-remember": "Zapamniętaj mnie",
+    "form-submit": "Zaloguj się",
+    "form-link-restore": "Nie pamiętam hasła",
+    "form-button-login-github": "Logowanie się przez GitHub",
+    "account-question": "Nie masz jeszcze konta?",
+    "nav-text-login": "Zarejestruj się",
+    "validation-email": "Niepoprawny adres e-mail",
+    "validation-email-required": "Email jest wymagany",
+    "validation-pass": "Hasło jest wymagane"
   }
 }
