@@ -6,21 +6,12 @@ import LoginForm from '@/features/login/components/login-form'
 
 const Login = () => {
   return (
-    <section className='pt-25 relative flex h-[778px] w-full flex-col overflow-hidden text-white'>
-      <Image
-        src='/HeroImage.webp'
-        alt='hero-image'
-        fill
-        sizes='100vw'
-        className='object-cover'
-        priority
-      />
-      <div className='absolute inset-0 flex items-center justify-center bg-hero-overlay/90'>
-        <div className='z-10 flex flex-col items-center justify-center gap-3 '>
-          <LoginForm />
-        </div>
+    <div className='relative w-full flex-1 items-center justify-center bg-hero-image bg-cover bg-center py-16'>
+      <div className='absolute inset-0 bg-hero-overlay/90 ' />
+      <div className='relative z-10 flex w-full items-center justify-center '>
+        <LoginForm />
       </div>
-    </section>
+    </div>
   )
 }
 

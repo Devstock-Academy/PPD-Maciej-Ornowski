@@ -49,6 +49,9 @@ module.exports = {
         content: '85.375rem',
         video: '40.1875rem',
       },
+      backgroundImage: {
+        'hero-image': "url('/HeroImage.webp')",
+      },
     },
   },
   plugins: [require('flowbite/plugin')],
