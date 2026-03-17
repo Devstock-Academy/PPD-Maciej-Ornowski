@@ -162,7 +162,7 @@ const RegisterForm = () => {
         >
           {t('form-submit')}
         </Button>
-        <span className='text-white'>
+        <span className='text-sm text-white'>
           {t('account-question')}{' '}
           <TextLink className=' text-primary underline' href='/'>
             {t('nav-text-login')}
