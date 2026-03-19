@@ -1,13 +1,7 @@
 'use client'
 
 import React from 'react'
-import {
-  Modal as FlowbiteModal,
-  Button,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-} from 'flowbite-react'
+import { Modal as FlowbiteModal } from 'flowbite-react'
 
 type ModalProps = {
   children: React.ReactNode
