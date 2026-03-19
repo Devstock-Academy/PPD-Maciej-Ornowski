@@ -28,7 +28,7 @@ const SignOutTopbar = () => {
         <NavButton
           href='/register'
           color={isRegisterPage ? 'orange' : 'primary'}
-          className='w-34 rounded-md  px-3 py-2 text-xs leading-6 '
+          className='w-34 rounded-lg  px-3 py-2 text-xs font-medium'
         >
           {t('sign-up')}
         </NavButton>
