@@ -10,26 +10,25 @@ import { Input, Checkbox, TextLink, Button } from '@/components'
 
 import SocialMediaIconPicker from '../../sign-out-layout/components/social-media-icon-picker'
 
-const createFormSchema = (tv: ReturnType<typeof useTranslations>) =>
+const createFormSchema = (t: ReturnType<typeof useTranslations>) =>
   z.object({
     email: z
-      .email(tv('validation-email'))
-      .min(1, tv('validation-email-required')),
-    password: z.string().min(1, tv('validation-pass')),
+      .email(t('validation-email'))
+      .min(1, t('validation-email-required')),
+    password: z.string().min(1, t('validation-pass')),
     rememberLogin: z.boolean(),
   })
 
 type FormData = z.infer<ReturnType<typeof createFormSchema>>
 
 const LoginForm = () => {
-  const tv = useTranslations('LoginForm')
   const t = useTranslations('LoginForm')
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<FormData>({
-    resolver: zodResolver(createFormSchema(tv)),
+    resolver: zodResolver(createFormSchema(t)),
     mode: 'onBlur',
   })
 
@@ -48,7 +47,6 @@ const LoginForm = () => {
         </h1>
         <Input
           testId='email'
-          id='email'
           label={t('form-field-email')}
           placeholder='name@example.com'
           error={errors.email?.message}
@@ -57,7 +55,6 @@ const LoginForm = () => {
         />
         <Input
           testId='password'
-          id='password'
           type='password'
           label={t('form-field-password')}
           placeholder='*********'
