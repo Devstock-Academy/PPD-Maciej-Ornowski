@@ -1,63 +1,55 @@
 'use client'
 
 import React from 'react'
-import { Button, ModalBody, ModalFooter, ModalHeader } from 'flowbite-react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { useTranslations } from 'next-intl'
 
-import { Modal, Input, Checkbox, TextLink } from '@/components'
+import { Modal, Input, Checkbox, TextLink, Button } from '@/components'
 
-const createFormSchema = (tv: ReturnType<typeof useTranslations>) =>
+const createFormSchema = (t: ReturnType<typeof useTranslations>) =>
   z
     .object({
-      nickname: z.string().min(3, tv('validation-text-field-error')),
-      firstname: z.string().min(3, tv('validation-text-field-error')),
-      secondname: z.string().min(3, tv('validation-text-field-error')),
+      nickname: z.string().min(3, t('validation-text-field-error')),
+      firstname: z.string().min(3, t('validation-text-field-error')),
+      secondname: z.string().min(3, t('validation-text-field-error')),
       email: z
-        .email(tv('validation-email'))
-        .min(1, tv('validation-email-required')),
+        .email(t('validation-email'))
+        .min(1, t('validation-email-required')),
       password: z
         .string()
-        .min(8, tv('validation-pass'))
-        .regex(/[A-Z]/, tv('validation-pass-capital'))
-        .regex(/[a-z]/, tv('validation-pass-small'))
-        .regex(/[0-9]/, tv('validation-pass-numbers'))
-        .regex(/[!@#$%^&*(),.?":{}|<>]/, tv('validation-pass-specials')),
-      confirmPassword: z.string().min(1, tv('validation-repass')),
+        .min(8, t('validation-pass'))
+        .regex(/[A-Z]/, t('validation-pass-capital'))
+        .regex(/[a-z]/, t('validation-pass-small'))
+        .regex(/[0-9]/, t('validation-pass-numbers'))
+        .regex(/[!@#$%^&*(),.?":{}|<>]/, t('validation-pass-specials')),
+      confirmPassword: z.string().min(1, t('validation-repass')),
       rulesAccepted: z.boolean().refine((val) => val === true, {
-        message: tv('validation-checkbox'),
+        message: t('validation-checkbox'),
       }),
     })
     .refine((data) => data.password === data.confirmPassword, {
       path: ['confirmPassword'],
-      message: tv('validation-repass'),
+      message: t('validation-repass'),
     })
 
 type FormData = z.infer<ReturnType<typeof createFormSchema>>
 
 const RegisterForm = () => {
-  const tv = useTranslations('RegisterForm')
   const t = useTranslations('RegisterForm')
   const {
     register,
     handleSubmit,
-    reset,
+    getValues,
     formState: { errors, isSubmitting },
   } = useForm<FormData>({
-    resolver: zodResolver(createFormSchema(tv)),
+    resolver: zodResolver(createFormSchema(t)),
     mode: 'onBlur',
   })
-
-  const [submitted, setSubmitted] = React.useState(false)
   const [showModal, setShowModal] = React.useState(false)
-  const [email, setEmail] = React.useState('')
 
-  const onSubmit = async (data: FormData) => {
-    setEmail(data.email)
-    reset()
-    setSubmitted(true)
+  const onSubmit = async () => {
     setShowModal(true)
   }
 
@@ -73,7 +65,7 @@ const RegisterForm = () => {
         <div className='flex flex-row justify-between gap-x-9'>
           <div className='w-full'>
             <Input
-              id='nickname'
+              testId='nick'
               label={t('form-field-nick')}
               placeholder={t('form-field-nick')}
               error={errors.nickname?.message}
@@ -83,7 +75,7 @@ const RegisterForm = () => {
           </div>
           <div className='w-full'>
             <Input
-              id='firstname'
+              testId='name'
               label={t('form-field-first-name')}
               placeholder={t('form-field-first-name')}
               error={errors.firstname?.message}
@@ -95,7 +87,7 @@ const RegisterForm = () => {
         <div className='flex flex-row justify-between gap-x-9'>
           <div className='w-full'>
             <Input
-              id='secondname'
+              testId='lastName'
               label={t('form-field-second-name')}
               placeholder={t('form-field-second-name')}
               error={errors.secondname?.message}
@@ -105,7 +97,7 @@ const RegisterForm = () => {
           </div>
           <div className='w-full'>
             <Input
-              id='email'
+              testId='email'
               label={t('form-field-email')}
               placeholder='name@example.com'
               error={errors.email?.message}
@@ -115,7 +107,7 @@ const RegisterForm = () => {
           </div>
         </div>
         <Input
-          id='password'
+          testId='password'
           type='password'
           label={t('form-field-password')}
           placeholder='*********'
@@ -124,7 +116,7 @@ const RegisterForm = () => {
           color={errors.password ? 'failure' : 'gray'}
         />
         <Input
-          id='confirmPassword'
+          testId='confirmPassword'
           type='password'
           label={t('form-field-password-confirm')}
           placeholder='*********'
@@ -134,12 +126,12 @@ const RegisterForm = () => {
         />
         <div className='flex flex-row items-center'>
           <Checkbox
-            id='rulesAccespted'
+            testId='acceptTerms'
             label={t('form-field-rules')}
             error={errors.rulesAccepted?.message}
             {...register('rulesAccepted')}
           >
-            <span className='text-white'>
+            <span className='text-sm text-white'>
               {t('form-field-rules')}{' '}
               <TextLink className=' text-primary underline' href='/'>
                 {t('form-field-rules-link')}
@@ -148,22 +140,27 @@ const RegisterForm = () => {
           </Checkbox>
         </div>
 
-        <Button className='bg-primary' type='submit' disabled={isSubmitting}>
+        <Button
+          className='bg-primary'
+          type='submit'
+          testId='registrationSubmit'
+          disabled={isSubmitting}
+        >
           {t('form-submit')}
         </Button>
-        <p className='text-white'>
+        <span className='text-sm text-white'>
           {t('account-question')}{' '}
           <TextLink className=' text-primary underline' href='/'>
             {t('nav-text-login')}
           </TextLink>
-        </p>
+        </span>
         <Modal show={showModal}>
           <div className='flex flex-col items-center gap-y-8 rounded-lg bg-dark-brand py-8'>
             <p className='text-2xl font-extralight text-white'>
               {t('modal-head-line')}
             </p>
             <p className='font-medium text-white'>
-              {t('modal-email-verification', { email })}
+              {t('modal-email-verification', { email: getValues('email') })}
             </p>
             <p className='font-medium text-white'>
               {t('modal-delivery-confirmation-question')}
