@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import React from 'react'
 import { Label, TextInput } from 'flowbite-react'
 
 type InputProps = {
@@ -7,17 +7,16 @@ type InputProps = {
   testId?: string
 } & React.ComponentProps<typeof TextInput>
 
-const Input = forwardRef<HTMLInputElement, InputProps>(
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ label, error, testId, ...props }, ref) => {
+    const id = React.useId()
+
     return (
       <div className='flex flex-col'>
-        <Label
-          className='font-medium leading-normal text-white'
-          htmlFor={label}
-        >
+        <Label className='font-medium leading-normal text-white' htmlFor={id}>
           {label}
         </Label>
-        <TextInput ref={ref} {...props} data-testid={testId} />
+        <TextInput id={id} ref={ref} {...props} data-testid={testId} />
         {error && (
           <p
             data-testid={testId}
