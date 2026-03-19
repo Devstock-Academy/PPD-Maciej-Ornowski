@@ -1,24 +1,27 @@
-import React, { forwardRef } from 'react'
-import { HelperText, Label, TextInput } from 'flowbite-react'
+import React, { forwardRef, useId } from 'react'
+import { Label, TextInput } from 'flowbite-react'
 
 type InputProps = {
   label: string
   error?: string | undefined
+  testId?: string
 } & React.ComponentProps<typeof TextInput>
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ label, error, ...props }, ref) => {
+  ({ label, error, testId, ...props }, ref) => {
+    const id = useId()
+
     return (
       <div className='flex flex-col'>
-        <Label
-          className='font-medium leading-normal text-white'
-          htmlFor={label}
-        >
+        <Label className='font-medium leading-normal text-white' htmlFor={id}>
           {label}
         </Label>
-        <TextInput ref={ref} {...props} />
+        <TextInput id={id} ref={ref} {...props} data-testid={testId} />
         {error && (
-          <p className='text-xs font-extralight leading-normal text-red-brand'>
+          <p
+            data-testid={testId}
+            className='text-xs font-extralight leading-normal text-red-brand'
+          >
             {error}
           </p>
         )}
