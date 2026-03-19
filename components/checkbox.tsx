@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { HelperText, Label, Checkbox as CheckboxFlowbite } from 'flowbite-react'
+import { Checkbox as CheckboxFlowbite } from 'flowbite-react'
 
 type CheckboxProps = {
   label?: string

@@ -8,55 +8,48 @@ import { useTranslations } from 'next-intl'
 
 import { Modal, Input, Checkbox, TextLink, Button } from '@/components'
 
-const createFormSchema = (tv: ReturnType<typeof useTranslations>) =>
+const createFormSchema = (t: ReturnType<typeof useTranslations>) =>
   z
     .object({
-      nickname: z.string().min(3, tv('validation-text-field-error')),
-      firstname: z.string().min(3, tv('validation-text-field-error')),
-      secondname: z.string().min(3, tv('validation-text-field-error')),
+      nickname: z.string().min(3, t('validation-text-field-error')),
+      firstname: z.string().min(3, t('validation-text-field-error')),
+      secondname: z.string().min(3, t('validation-text-field-error')),
       email: z
-        .email(tv('validation-email'))
-        .min(1, tv('validation-email-required')),
+        .email(t('validation-email'))
+        .min(1, t('validation-email-required')),
       password: z
         .string()
-        .min(8, tv('validation-pass'))
-        .regex(/[A-Z]/, tv('validation-pass-capital'))
-        .regex(/[a-z]/, tv('validation-pass-small'))
-        .regex(/[0-9]/, tv('validation-pass-numbers'))
-        .regex(/[!@#$%^&*(),.?":{}|<>]/, tv('validation-pass-specials')),
-      confirmPassword: z.string().min(1, tv('validation-repass')),
+        .min(8, t('validation-pass'))
+        .regex(/[A-Z]/, t('validation-pass-capital'))
+        .regex(/[a-z]/, t('validation-pass-small'))
+        .regex(/[0-9]/, t('validation-pass-numbers'))
+        .regex(/[!@#$%^&*(),.?":{}|<>]/, t('validation-pass-specials')),
+      confirmPassword: z.string().min(1, t('validation-repass')),
       rulesAccepted: z.boolean().refine((val) => val === true, {
-        message: tv('validation-checkbox'),
+        message: t('validation-checkbox'),
       }),
     })
     .refine((data) => data.password === data.confirmPassword, {
       path: ['confirmPassword'],
-      message: tv('validation-repass'),
+      message: t('validation-repass'),
     })
 
 type FormData = z.infer<ReturnType<typeof createFormSchema>>
 
 const RegisterForm = () => {
-  const tv = useTranslations('RegisterForm')
   const t = useTranslations('RegisterForm')
   const {
     register,
     handleSubmit,
-    reset,
+    getValues,
     formState: { errors, isSubmitting },
   } = useForm<FormData>({
-    resolver: zodResolver(createFormSchema(tv)),
+    resolver: zodResolver(createFormSchema(t)),
     mode: 'onBlur',
   })
-
-  const [submitted, setSubmitted] = React.useState(false)
   const [showModal, setShowModal] = React.useState(false)
-  const [email, setEmail] = React.useState('')
 
-  const onSubmit = async (data: FormData) => {
-    setEmail(data.email)
-    reset()
-    setSubmitted(true)
+  const onSubmit = async () => {
     setShowModal(true)
   }
 
@@ -73,7 +66,6 @@ const RegisterForm = () => {
           <div className='w-full'>
             <Input
               testId='nick'
-              id='nickname'
               label={t('form-field-nick')}
               placeholder={t('form-field-nick')}
               error={errors.nickname?.message}
@@ -84,7 +76,6 @@ const RegisterForm = () => {
           <div className='w-full'>
             <Input
               testId='name'
-              id='firstname'
               label={t('form-field-first-name')}
               placeholder={t('form-field-first-name')}
               error={errors.firstname?.message}
@@ -97,7 +88,6 @@ const RegisterForm = () => {
           <div className='w-full'>
             <Input
               testId='lastName'
-              id='secondname'
               label={t('form-field-second-name')}
               placeholder={t('form-field-second-name')}
               error={errors.secondname?.message}
@@ -108,7 +98,6 @@ const RegisterForm = () => {
           <div className='w-full'>
             <Input
               testId='email'
-              id='email'
               label={t('form-field-email')}
               placeholder='name@example.com'
               error={errors.email?.message}
@@ -119,7 +108,6 @@ const RegisterForm = () => {
         </div>
         <Input
           testId='password'
-          id='password'
           type='password'
           label={t('form-field-password')}
           placeholder='*********'
@@ -129,7 +117,6 @@ const RegisterForm = () => {
         />
         <Input
           testId='confirmPassword'
-          id='confirmPassword'
           type='password'
           label={t('form-field-password-confirm')}
           placeholder='*********'
@@ -140,7 +127,6 @@ const RegisterForm = () => {
         <div className='flex flex-row items-center'>
           <Checkbox
             testId='acceptTerms'
-            id='rulesAccespted'
             label={t('form-field-rules')}
             error={errors.rulesAccepted?.message}
             {...register('rulesAccepted')}
@@ -174,7 +160,7 @@ const RegisterForm = () => {
               {t('modal-head-line')}
             </p>
             <p className='font-medium text-white'>
-              {t('modal-email-verification', { email })}
+              {t('modal-email-verification', { email: getValues('email') })}
             </p>
             <p className='font-medium text-white'>
               {t('modal-delivery-confirmation-question')}
