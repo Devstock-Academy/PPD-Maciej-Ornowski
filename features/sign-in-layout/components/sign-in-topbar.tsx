@@ -20,7 +20,14 @@ const SignInTopbar = () => {
           <span>Devstock.pl</span>
         </TextLink>
         <Divider />
-        <Image src='/Avatar.webp' alt='avatar-image' fill priority />
+        <Image
+          src='/Avatar.webp'
+          alt='avatar-image'
+          className='object-contain'
+          width={48}
+          height={48}
+          priority
+        />
         <TextLink className='text-white' href='/'>
           <span>{t('sign-out')}</span>
         </TextLink>
