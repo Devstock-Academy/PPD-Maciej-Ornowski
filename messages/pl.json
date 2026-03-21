@@ -5,7 +5,8 @@
   },
   "TopBar": {
     "login": "Zaloguj się",
-    "sign-up": "Rejestracja"
+    "sign-up": "Rejestracja",
+    "sign-out": "Wyloguj się"
   },
   "HeroImage": {
     "headLine": "Codebusters _/>",
