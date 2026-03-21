@@ -12,7 +12,10 @@ const SignInLayout = ({ children }: SignOutLayoutProps) => {
     <div className='flex min-h-screen flex-col'>
       <SocialMediaBar />
       <SignInTopbar />
-      <main className='flex flex-1 flex-col'>{children}</main>
+      <div className='flex flex-row'>
+        <Sidebar />
+        <main className='flex flex-1 flex-col'>{children}</main>
+      </div>
     </div>
   )
 }
