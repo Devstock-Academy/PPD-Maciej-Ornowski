@@ -26,7 +26,7 @@ const SignOutTopbar = () => {
         <Divider />
         <TextLink
           href='/login'
-          className={clsx('', {
+          className={clsx({
             'text-orange-brand': isLoginPage,
             'text-white': !isLoginPage,
           })}
