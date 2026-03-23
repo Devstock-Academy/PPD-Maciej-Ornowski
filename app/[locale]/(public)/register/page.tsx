@@ -1,5 +1,7 @@
+import { Register } from '@/features/register'
+
 const RegisterPage = () => {
-  return <></>
+  return <Register />
 }
 
 export default RegisterPage

@@ -18,6 +18,8 @@ module.exports = {
           800: '#0056B3',
         },
         'dark-brand': '#222426',
+        'red-brand': '#F74746',
+        'orange-brand': '#F5A22E',
         'rich-black': '#121415',
         'hero-overlay': '#1B2124',
       },
@@ -37,12 +39,18 @@ module.exports = {
         47.5: '11.875rem', // 190px
         50: '12.5rem', // 200px
         72: '18rem', // 288px
+        75: '18.75rem', // 300px
+        112: '28rem', // 448px
         120: '30rem', // 480px
+        175: '43.75rem', // 700px
         197.5: '49.375rem', // 790px
       },
       maxWidth: {
         content: '85.375rem',
         video: '40.1875rem',
+      },
+      backgroundImage: {
+        'hero-image': "url('/HeroImage.webp')",
       },
     },
   },

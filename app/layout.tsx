@@ -1,10 +1,13 @@
 import React from 'react'
+import clsx from 'clsx'
+import { ThemeProvider } from 'flowbite-react'
 import { Lexend_Deca } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
-import clsx from 'clsx'
 
 import './globals.css'
+
+import DevStockTheme from '@/components/theme'
 
 const lexendDeca = Lexend_Deca({
   subsets: ['latin'],
@@ -28,11 +31,13 @@ export default async function RootLayout({
   const bodyClass = clsx(lexendDeca.className)
   return (
     <html lang={locale}>
-      <body className={bodyClass}>
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
-      </body>
+      <ThemeProvider theme={DevStockTheme}>
+        <body className={bodyClass}>
+          <NextIntlClientProvider messages={messages}>
+            {children}
+          </NextIntlClientProvider>
+        </body>
+      </ThemeProvider>
     </html>
   )
 }

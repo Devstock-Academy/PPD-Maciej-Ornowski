@@ -21,5 +21,34 @@
     "bottomCardLink": "Poznaj nas",
     "descriptionMain": "Codebusters pozwoli Ci poznawać i w praktyce ćwiczyć technologie Front-end, takie jak HTML5, CSS oraz JavaScript! ",
     "descriptionSupport": "Możesz rozwiązywać zadania, piąć się w rankingu, zdobywać osiagnięcia i poziomy znajomości różnych technologii, a nawet wyeksportować swoje wyniki i pochwalić się nimi!"
+  },
+  "RegisterForm": {
+    "form-head-line": "Zarejestruj się",
+    "form-field-nick": "Pseudonim",
+    "form-field-first-name": "Imię",
+    "form-field-second-name": "Nazwisko",
+    "form-field-email": "Twój e-mail",
+    "form-field-password": "Hasło",
+    "form-field-password-confirm": "Potwierdź hasło",
+    "form-field-rules": "Akceptuję",
+    "form-field-rules-link": " zasady i warunki ",
+    "form-submit": "Zarejestruj się",
+    "account-question": "Masz już konto?",
+    "nav-text-login": "Zaloguj się",
+    "validation-text-field-error": "Wymagane przynajmniej 3 znaki",
+    "validation-email": "Niepoprawny adres e-mail",
+    "validation-email-required": "Email jest wymagany",
+    "validation-pass": "Minimum 8 znaków",
+    "validation-pass-capital": "Przynajmniej 1 duża litera",
+    "validation-pass-small": "Przynajmniej 1 mała litera",
+    "validation-pass-numbers": "Przynajmniej 1 liczba",
+    "validation-pass-specials": "Przynajmniej 1 znak specjalny",
+    "validation-repass": "Musi zawierać dokładnie to, co pole hasło",
+    "validation-checkbox": "Musi być zaznaczony!",
+
+    "modal-head-line": "Potwierdź  rejestrację!",
+    "modal-email-verification": "Przesłaliśmy link aktywacyjny na adres {email}, prosimy o weryfikację :)",
+    "modal-delivery-confirmation-question": "Mail aktywacyjny nie dotarł?",
+    "modal-resend-button": "Prześlij ponownie"
   }
 }
