@@ -139,7 +139,6 @@ const RegisterForm = () => {
             </span>
           </Checkbox>
         </div>
-
         <Button
           className='bg-primary'
           type='submit'
