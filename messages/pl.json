@@ -1,0 +1,67 @@
+{
+  "Footer": {
+    "privacy": "Polityka prywatności",
+    "contact": "Kontakt"
+  },
+  "TopBar": {
+    "login": "Zaloguj się",
+    "sign-up": "Rejestracja"
+  },
+  "HeroImage": {
+    "headLine": "Codebusters _/>",
+    "heroSupportingTextLine1": "...to platforma do skutecznej, szybkiej i angażującej nauki",
+    "heroSupportingTextLine2": "programowania poprzez praktykę i grywalizację",
+    "buttonStartLearning": "Zacznij naukę",
+    "buttonExploreAcademy": "Poznaj akademię"
+  },
+  "Content": {
+    "headLine": "Czego możesz się nauczyć?",
+    "bottomCardTitle": "Zaufało nam już 400+ kursantów z całego kraju",
+    "bottomCardText": "Rozwijamy produkty edukacyjne, prowadzimy akademię programowania, tworzymy software dla klientów komercyjnych, prowadzimy body leasing i promujemy sport",
+    "bottomCardLink": "Poznaj nas",
+    "descriptionMain": "Codebusters pozwoli Ci poznawać i w praktyce ćwiczyć technologie Front-end, takie jak HTML5, CSS oraz JavaScript! ",
+    "descriptionSupport": "Możesz rozwiązywać zadania, piąć się w rankingu, zdobywać osiagnięcia i poziomy znajomości różnych technologii, a nawet wyeksportować swoje wyniki i pochwalić się nimi!"
+  },
+  "RegisterForm": {
+    "form-head-line": "Zarejestruj się",
+    "form-field-nick": "Pseudonim",
+    "form-field-first-name": "Imię",
+    "form-field-second-name": "Nazwisko",
+    "form-field-email": "Twój e-mail",
+    "form-field-password": "Hasło",
+    "form-field-password-confirm": "Potwierdź hasło",
+    "form-field-rules": "Akceptuję",
+    "form-field-rules-link": " zasady i warunki ",
+    "form-submit": "Zarejestruj się",
+    "account-question": "Masz już konto?",
+    "nav-text-login": "Zaloguj się",
+    "validation-text-field-error": "Wymagane przynajmniej 3 znaki",
+    "validation-email": "Niepoprawny adres e-mail",
+    "validation-email-required": "Email jest wymagany",
+    "validation-pass": "Minimum 8 znaków",
+    "validation-pass-capital": "Przynajmniej 1 duża litera",
+    "validation-pass-small": "Przynajmniej 1 mała litera",
+    "validation-pass-numbers": "Przynajmniej 1 liczba",
+    "validation-pass-specials": "Przynajmniej 1 znak specjalny",
+    "validation-repass": "Musi zawierać dokładnie to, co pole hasło",
+    "validation-checkbox": "Musi być zaznaczony!",
+    "modal-head-line": "Potwierdź  rejestrację!",
+    "modal-email-verification": "Przesłaliśmy link aktywacyjny na adres {email}, prosimy o weryfikację :)",
+    "modal-delivery-confirmation-question": "Mail aktywacyjny nie dotarł?",
+    "modal-resend-button": "Prześlij ponownie"
+  },
+  "LoginForm": {
+    "form-head-line": "Zaloguj się",
+    "form-field-email": "Twój e-mail",
+    "form-field-password": "Hasło",
+    "form-field-remember": "Zapamniętaj mnie",
+    "form-submit": "Zaloguj się",
+    "text-link-restore-password": "Nie pamiętam hasła",
+    "form-button-login-github": "Logowanie się przez GitHub",
+    "account-question": "Nie masz jeszcze konta?",
+    "text-link-register": "Zarejestruj się",
+    "validation-email": "E-mail musi mieć poprawny format",
+    "validation-email-required": "Email jest wymagany",
+    "validation-pass": "Coś poszło nie tak!"
+  }
+}

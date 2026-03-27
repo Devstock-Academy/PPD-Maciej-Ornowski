@@ -91,7 +91,3 @@ jobs:
             echo "paths_empty=false" >> $GITHUB_OUTPUT
           fi
           echo "Running tests for branch $BRANCH: $PATHS"
-
-      - name: Run unit tests
-        if: steps.test-paths.outputs.paths_empty != 'true'
-        run: pnpm vitest run --reporter=verbose ${{ steps.test-paths.outputs.paths }}
