@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import clsx from 'clsx'
 
 import { NavButton, Divider, TextLink } from '@/components'
 import { DevstockAcademyLogo } from '@/icons'
@@ -11,6 +12,7 @@ const SignOutTopbar = () => {
   const t = useTranslations('TopBar')
   const pathname = usePathname()
   const isRegisterPage = pathname.includes('/register')
+  const isLoginPage = pathname.includes('/login')
 
   return (
     <div className=' flex h-20 w-full items-center justify-between bg-dark-brand px-10 drop-shadow-md '>
@@ -22,7 +24,13 @@ const SignOutTopbar = () => {
           <span>Devstock.pl</span>
         </TextLink>
         <Divider />
-        <TextLink className='text-white' href='/'>
+        <TextLink
+          href='/login'
+          className={clsx({
+            'text-orange-brand': isLoginPage,
+            'text-white': !isLoginPage,
+          })}
+        >
           <span>{t('login')}</span>
         </TextLink>
         <NavButton

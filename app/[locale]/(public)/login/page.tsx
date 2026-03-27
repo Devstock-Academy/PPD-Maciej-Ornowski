@@ -1,5 +1,7 @@
+import { Login } from '@/features/login'
+
 const LoginPage = () => {
-  return <></>
+  return <Login />
 }
 
 export default LoginPage
